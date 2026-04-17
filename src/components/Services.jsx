@@ -1,4 +1,4 @@
-import { LuCode, LuCloud, LuTrendingUp, LuRocket, LuMonitor, LuSettings2 } from 'react-icons/lu'
+import { LuCode, LuCloud, LuTrendingUp, LuRocket, LuMonitor, LuSettings2, LuArrowUpRight } from 'react-icons/lu'
 import './Services.css'
 
 const services = [
@@ -61,7 +61,7 @@ export default function Services() {
 
         <div className="services-cta">
           <a href="#contact" className="services-btn services-btn--primary">
-            BOOK A CALL <span className="services-btn-arrow">↗</span>
+            BOOK A CALL <span className="services-btn-arrow"><LuArrowUpRight /></span>
           </a>
         </div>
       </div>
