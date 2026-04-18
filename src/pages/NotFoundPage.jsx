@@ -1,18 +1,14 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
-import fireFrag from '../../shaders/showcase-fire.glsl'
-import emberFrag from '../../shaders/showcase-ember.glsl'
-import goldFrag from '../../shaders/showcase-gold.glsl'
+import { LuArrowUpRight } from 'react-icons/lu'
+import fireFrag from '../shaders/showcase-fire.glsl'
+import Nav from '../components/layout/Nav'
+import logo from '../assets/images/asbirtechlogo.png'
+import './NotFoundPage.css'
 
 const VERT = `attribute vec2 a_pos; void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }`
 
-const VARIANTS = {
-  fire:  { blindCount: 38, frag: fireFrag },
-  ember: { blindCount: 42, frag: emberFrag },
-  gold:  { blindCount: 38, frag: goldFrag },
-}
-
-function WebGLThumb({ variant }) {
+function FireBackground() {
   const containerRef = useRef(null)
   const canvasRef    = useRef(null)
 
@@ -24,23 +20,22 @@ function WebGLThumb({ variant }) {
     const gl = canvas.getContext('webgl', { antialias: false, alpha: false })
     if (!gl) return
 
-    const { blindCount, frag } = VARIANTS[variant]
-
     const compile = (type, src) => {
       const s = gl.createShader(type)
       gl.shaderSource(s, src)
       gl.compileShader(s)
       return s
     }
+
     const prog = gl.createProgram()
     gl.attachShader(prog, compile(gl.VERTEX_SHADER, VERT))
-    gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, frag))
+    gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fireFrag))
     gl.linkProgram(prog)
     gl.useProgram(prog)
 
     const buf = gl.createBuffer()
     gl.bindBuffer(gl.ARRAY_BUFFER, buf)
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW)
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 3,-1, -1,3]), gl.STATIC_DRAW)
     const aPos = gl.getAttribLocation(prog, 'a_pos')
     gl.enableVertexAttribArray(aPos)
     gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0)
@@ -49,7 +44,7 @@ function WebGLThumb({ variant }) {
     const uBlinds = gl.getUniformLocation(prog, 'u_blinds')
     const uReveal = gl.getUniformLocation(prog, 'u_reveal')
 
-    gl.uniform1f(uBlinds, blindCount)
+    gl.uniform1f(uBlinds, 52)
 
     let reveal = 0
     let rafId  = null
@@ -66,23 +61,14 @@ function WebGLThumb({ variant }) {
       gl.drawArrays(gl.TRIANGLES, 0, 3)
     }
 
-    const io = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && reveal < 0.999) {
-        const tick = () => {
-          if (!active) return
-          reveal += (1.0 - reveal) * 0.028
-          draw()
-          if (reveal < 0.999) {
-            rafId = requestAnimationFrame(tick)
-          } else {
-            reveal = 1.0
-            draw()
-          }
-        }
-        rafId = requestAnimationFrame(tick)
-      }
-    }, { threshold: 0.15 })
-    io.observe(container)
+    const tick = () => {
+      if (!active) return
+      reveal += (1.0 - reveal) * 0.022
+      draw()
+      if (reveal < 0.999) rafId = requestAnimationFrame(tick)
+      else { reveal = 1.0; draw() }
+    }
+    rafId = requestAnimationFrame(tick)
 
     const ro = new ResizeObserver(draw)
     ro.observe(container)
@@ -92,30 +78,47 @@ function WebGLThumb({ variant }) {
       active = false
       cancelAnimationFrame(rafId)
       ro.disconnect()
-      io.disconnect()
     }
-  }, [variant])
+  }, [])
 
   return (
-    <div className="sc-thumb" ref={containerRef} aria-hidden="true">
-      <canvas className="sc-thumb-canvas" ref={canvasRef} />
+    <div className="nf-fire-bg" ref={containerRef} aria-hidden="true">
+      <canvas className="nf-fire-canvas" ref={canvasRef} />
     </div>
   )
 }
 
-export default function ShowcaseCard({ variant = 'fire', client, title, index, id }) {
+export default function NotFoundPage() {
   return (
-    <Link to={`/projects/${id}`} className="sc-card" aria-label={`View ${client} case study`}>
-      <div className="sc-visual">
-        <WebGLThumb variant={variant} />
-      </div>
-      <div className="sc-body">
-        <span className="sc-index">{String(index).padStart(2, '0')}</span>
-        <div className="sc-text">
-          <p className="sc-client">{client}</p>
-          <h3 className="sc-title">{title}</h3>
+    <div className="nf-page">
+
+      <FireBackground />
+      <div className="nf-vignette" />
+
+      <div className="container"><Nav /></div>
+
+      <main className="nf-content">
+        <span className="nf-code">404</span>
+        <h1 className="nf-heading">Page not found.</h1>
+        <p className="nf-desc">
+          The page you're looking for doesn't exist or may have been moved.
+          Head back and keep exploring.
+        </p>
+        <Link to="/" className="nf-btn">
+          Go back home <LuArrowUpRight aria-hidden="true" />
+        </Link>
+      </main>
+
+      <footer className="site-footer" aria-label="Site footer">
+        <div className="footer-bar">
+          <div className="footer-bar-left">
+            <img src={logo} alt="Asbir Tech" className="footer-bar-logo" />
+            <span className="footer-bar-copy">&copy; {new Date().getFullYear()} AsbirTech, Inc.</span>
+          </div>
+          <span className="footer-bar-location">🇵🇭&nbsp; Dumaguete, PH</span>
         </div>
-      </div>
-    </Link>
+      </footer>
+
+    </div>
   )
 }

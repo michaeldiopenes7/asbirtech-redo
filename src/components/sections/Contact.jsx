@@ -7,8 +7,8 @@ const VERT = `attribute vec2 a_pos; void main() { gl_Position = vec4(a_pos, 0.0,
 
 const contactItems = [
   { icon: LuMail,    value: 'hello@asbirtech.com',      href: 'mailto:hello@asbirtech.com' },
-  { icon: LuPhone,   value: '+1 (555) 000-0000',        href: 'tel:+15550000000' },
-  { icon: LuMapPin,  value: '123 Cloud Street, Tech City', href: null },
+  { icon: LuPhone,   value: '+63 (35) 422-0000',           href: 'tel:+6335422000' },
+  { icon: LuMapPin,  value: 'Dumaguete City, Philippines', href: null },
 ]
 
 function ContactSlat() {

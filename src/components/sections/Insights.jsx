@@ -1,10 +1,11 @@
 import { LuArrowUpRight } from 'react-icons/lu'
+import { Link } from 'react-router-dom'
 import { insights } from '../../content/insights'
 import './Insights.css'
 
 export default function Insights() {
   return (
-    <section id="insights" className="insights" aria-labelledby="insights-heading">
+    <section id="articles" className="insights" aria-labelledby="insights-heading">
       <div className="container">
 
         <div className="insights-top" data-reveal>
@@ -13,14 +14,14 @@ export default function Insights() {
               Latest articles &amp;<br />industry insights
             </h2>
           </div>
-          <a href="/insights" className="insights-view-all">
-            View more Insights <LuArrowUpRight aria-hidden="true" />
+          <a href="/articles" className="insights-view-all">
+            View more Articles <LuArrowUpRight aria-hidden="true" />
           </a>
         </div>
 
         <div className="insights-grid">
-          {insights.map((post, i) => (
-            <a key={post.id} href={post.href} className="insight-card" data-reveal data-reveal-delay={i * 100}>
+          {insights.slice(0, 3).map((post, i) => (
+            <Link key={post.id} to={post.body?.length ? `/articles/${post.id}` : post.href} className="insight-card" data-reveal data-reveal-delay={i * 100} {...(post.body?.length ? {} : { target: '_blank', rel: 'noopener noreferrer' })}>
               <div className="insight-card-image">
                 {post.image && <img src={post.image} alt={post.title} />}
               </div>
@@ -37,7 +38,7 @@ export default function Insights() {
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
 

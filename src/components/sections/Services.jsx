@@ -1,4 +1,5 @@
 import { LuCode, LuCloud, LuTrendingUp, LuRocket, LuMonitor, LuSettings2, LuArrowUpRight } from 'react-icons/lu'
+import { Link } from 'react-router-dom'
 import { services } from '../../content/services'
 import './Services.css'
 
@@ -34,9 +35,9 @@ export default function Services() {
         </div>
 
         <div className="services-cta" data-reveal>
-          <a href="#contact" className="services-btn services-btn--primary">
+          <Link to="/book-a-call" className="services-btn services-btn--primary">
             Book a call <span className="services-btn-arrow" aria-hidden="true"><LuArrowUpRight /></span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

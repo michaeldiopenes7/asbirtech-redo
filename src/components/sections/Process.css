@@ -3,7 +3,6 @@
   padding: 120px 0;
 }
 
-/* Header */
 .process-header {
   margin-bottom: 80px;
 }
@@ -26,12 +25,10 @@
   max-width: 480px;
 }
 
-/* ── Body: spine overlay + steps ── */
 .process-body {
   position: relative;
 }
 
-/* ── Spine: absolute centered strip ── */
 .process-spine {
   position: absolute;
   left: 50%;
@@ -95,7 +92,6 @@
   z-index: 3;
 }
 
-/* ── Steps ── */
 .process-steps {
   display: flex;
   flex-direction: column;
@@ -108,7 +104,6 @@
   gap: 0;
 }
 
-/* Entrance animation */
 .process-step .process-visual,
 .process-step .process-content {
   opacity: 0;
@@ -130,7 +125,6 @@
   transition-delay: 0.12s;
 }
 
-/* Default: visual left, content right */
 .process-step .process-visual {
   padding: 40px 80px 40px 0;
 }
@@ -139,7 +133,6 @@
   padding: 40px 0 40px 80px;
 }
 
-/* Flipped: content left, visual right */
 .process-step.is-flipped .process-visual {
   order: 2;
   padding: 40px 0 40px 80px;
@@ -150,7 +143,6 @@
   padding: 40px 80px 40px 0;
 }
 
-/* WebGL slat */
 .process-slat-wrap {
   position: relative;
   width: 100%;
@@ -180,7 +172,6 @@
   display: block;
 }
 
-/* Content */
 .process-content {
   display: flex;
   flex-direction: column;
@@ -229,7 +220,6 @@
   color: #fff;
 }
 
-/* ── Tablet ── */
 @media (max-width: 860px) {
   .process-spine {
     left: 32px;
@@ -263,7 +253,6 @@
   }
 }
 
-/* ── Mobile ── */
 @media (max-width: 540px) {
   .process {
     padding: 80px 0;

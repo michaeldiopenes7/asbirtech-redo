@@ -21,6 +21,7 @@ export default defineConfig({
     },
   },
   server: {
+    historyApiFallback: true,
     headers: {
       'X-Frame-Options': 'DENY',
       'X-Content-Type-Options': 'nosniff',

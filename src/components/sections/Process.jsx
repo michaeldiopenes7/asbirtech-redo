@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
 import ProcessSlat from '../webgl/ProcessSlat'
 import { steps } from '../../content/process'
 import './Process.css'
@@ -40,7 +41,6 @@ export default function Process() {
         </div>
 
         <div className="process-body" ref={bodyRef}>
-          {/* Spine */}
           <div className="process-spine" aria-hidden="true">
             <div className="process-spine-track" />
             <div className="process-spine-fill" ref={fillRef} />
@@ -55,7 +55,6 @@ export default function Process() {
             ))}
           </div>
 
-          {/* Steps */}
           <div className="process-steps">
             {steps.map((step, i) => (
               <div
@@ -75,9 +74,9 @@ export default function Process() {
                 <div className="process-content">
                   <h3 className="process-step-title">{step.title}</h3>
                   <p className="process-step-desc">{step.description}</p>
-                  <a href={step.cta.href} className="process-cta">
+                  <Link to={step.cta.href} className="process-cta">
                     {step.cta.label}
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}

@@ -33,14 +33,15 @@ export default function Nav() {
       </div>
 
       <ul className="nav-links">
-        <li><a href="#services">Services</a></li>
-        <li><a href="#solutions">About Us</a></li>
-        <li><a href="#about">Team</a></li>
-        <li><a href="#cases">Showcase</a></li>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#about">About Us</a></li>
+        <li><a href="/#work">Showcase</a></li>
+        <li><a href="/#articles">Articles</a></li>
       </ul>
 
       <div className="nav-cta">
-        <a href="#contact" className="btn-contact">Contact Us</a>
+        <a href="/#contact" className="btn-contact">Contact Us</a>
         <button
           className="nav-menu-btn"
           aria-label="Toggle menu"
@@ -57,11 +58,12 @@ export default function Nav() {
 
       {menuOpen && (
         <div className={`nav-mobile-menu ${isClosing ? 'closing' : ''}`}>
-          <a href="#services" onClick={handleMenuClose}>Services</a>
-          <a href="#about" onClick={handleMenuClose}>About Us</a>
-          <a href="#team" onClick={handleMenuClose}>Team</a>
-          <a href="#cases" onClick={handleMenuClose}>Showcase</a>
-          <a href="#contact" className="nav-mobile-cta" onClick={handleMenuClose}>Contact Us</a>
+          <a href="/" onClick={handleMenuClose}>Home</a>
+          <a href="/#services" onClick={handleMenuClose}>Services</a>
+          <a href="/#about" onClick={handleMenuClose}>About Us</a>
+          <a href="/#work" onClick={handleMenuClose}>Showcase</a>
+          <a href="/#articles" onClick={handleMenuClose}>Articles</a>
+          <a href="/#contact" className="nav-mobile-cta" onClick={handleMenuClose}>Contact Us</a>
         </div>
       )}
     </nav>

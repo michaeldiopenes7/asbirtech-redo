@@ -10,7 +10,6 @@
   margin: 0 auto;
 }
 
-/* ── Top row ── */
 .insights-top {
   display: flex;
   align-items: flex-end;
@@ -68,14 +67,12 @@
   color: #fff;
 }
 
-/* ── Grid ── */
 .insights-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
-/* ── Card ── */
 .insight-card {
   display: flex;
   flex-direction: column;
@@ -128,7 +125,6 @@
   flex: 1;
 }
 
-/* Author */
 .insight-card-author {
   display: flex;
   align-items: center;
@@ -171,7 +167,6 @@
   color: rgba(255, 255, 255, 0.35);
 }
 
-/* ── Tablet ── */
 @media (max-width: 900px) {
   .insights-grid {
     grid-template-columns: 1fr 1fr;
@@ -182,7 +177,6 @@
   }
 }
 
-/* ── Mobile ── */
 @media (max-width: 560px) {
   .insights {
     padding: 80px 0;

@@ -76,16 +76,13 @@ void main() {
   vec2 uv = gl_FragCoord.xy / u_res;
   float aspect = u_res.x / u_res.y;
 
-  // static lights
   float lightR = lightFalloff(uv, vec2(1.0, 1.0), aspect, 1.85, 0.28);
   float lightL = lightFalloff(uv, vec2(0.0, 0.0), aspect, 1.20, 0.28);
   float lightAmt = max(lightR, lightL);
 
-  // ── slat geometry ──
   float slatT   = fract(uv.x * u_blinds);
   float gapMask = smoothstep(0.0, 0.035, slatT);  // 0 in gap, 1 on face
 
-  // mouse hover — only affects lit slat area, not gaps/black zones
   float hoverAmt = 0.0;
   if (u_mouse.x >= 0.0) {
     vec2 d = vec2((uv.x - u_mouse.x) * aspect, uv.y - u_mouse.y);
@@ -96,7 +93,6 @@ void main() {
     float dist = length(dr);
     float raw = 1.0 - smoothstep(0.0, 0.35, dist);
     raw = pow(raw, 2.0) * 0.75;
-    // mask hover to slat faces only — zero in gaps, zero in fully-dark zones
     hoverAmt = raw * gapMask * max(lightAmt, 0.15);
   }
 
@@ -105,7 +101,6 @@ void main() {
   float rimGlow = (1.0 - smoothstep(0.88, 1.0, slatT)) * totalLight * 0.7;
   float face    = slatT * 0.72 * totalLight;
 
-  // gap: in hover zone show as semi-transparent white stripe; elsewhere stay dark
   float gapLight = 0.0;
   if (u_mouse.x >= 0.0) {
     vec2 d2 = vec2((uv.x - u_mouse.x) * aspect, uv.y - u_mouse.y);
@@ -124,11 +119,9 @@ void main() {
 
   vec3 col = ramp(clamp(brightness, 0.0, 1.0));
 
-  // center darkness
   float centerDark = exp(-pow((uv.x - 0.5) * 2.2, 2.0) * 1.8);
   col *= (1.0 - centerDark * 0.72);
 
-  // vignette top/bottom
   float vigY = uv.y * (1.0 - uv.y) * 4.0;
   col *= pow(clamp(vigY, 0.0, 1.0), 0.25);
 
@@ -232,7 +225,6 @@ void main() {
       const cur = mouseCurrentRef.current;
       const tgt = mouseTargetRef.current;
 
-      // smoothly lerp toward target (including -1,-1 for no hover)
       cur.x += (tgt.x - cur.x) * factor;
       cur.y += (tgt.y - cur.y) * factor;
 

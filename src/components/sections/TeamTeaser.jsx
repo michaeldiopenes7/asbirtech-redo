@@ -25,7 +25,6 @@ export default function TeamTeaser() {
 
         <div className="team-teaser-inner">
 
-          {/* Left — copy */}
           <div className="team-teaser-copy">
             <p className="team-teaser-eyebrow">The people behind the work</p>
             <h2 id="team-heading" className="team-teaser-headline">
@@ -40,7 +39,6 @@ export default function TeamTeaser() {
             </a>
           </div>
 
-          {/* Right — stats + avatars */}
           <div className="team-teaser-right">
 
             <div className="team-teaser-stats">

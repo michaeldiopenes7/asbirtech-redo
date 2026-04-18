@@ -40,6 +40,7 @@ export default function Showcase() {
           {projects.map((p, i) => (
             <ShowcaseCard
               key={p.id}
+              id={p.id}
               index={i + 1}
               variant={p.variant}
               client={p.client}

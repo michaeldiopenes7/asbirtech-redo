@@ -12,7 +12,6 @@
   align-items: stretch;
 }
 
-/* ── Left visual panel ── */
 .about-visual {
   position: relative;
   border-radius: 20px;
@@ -22,14 +21,12 @@
   min-height: 480px;
 }
 
-/* blinds fill the whole card */
 .about-visual-canvas {
   position: absolute;
   inset: 0;
   z-index: 0;
 }
 
-/* black fade from top */
 .about-visual-top-fade {
   position: absolute;
   inset: 0;
@@ -37,7 +34,6 @@
   z-index: 1;
 }
 
-/* diagonal orange-red glow from bottom-left — matches reference */
 .about-visual-glow {
   position: absolute;
   inset: 0;
@@ -58,7 +54,6 @@
   z-index: 1;
 }
 
-/* inset photo floats above the glow */
 .about-visual-photo {
   position: absolute;
   inset: 32px 32px 32px 32px;
@@ -75,7 +70,6 @@
   display: block;
 }
 
-/* ── Right content ── */
 .about-content {
   display: flex;
   flex-direction: column;
@@ -100,7 +94,6 @@
   margin: 0;
 }
 
-/* Team strip */
 .about-team-strip {
   display: flex;
   align-items: center;
@@ -175,7 +168,6 @@
   color: #fff;
 }
 
-/* Tablet */
 @media (max-width: 860px) {
   .about-inner {
     grid-template-columns: 1fr;
@@ -187,7 +179,6 @@
   }
 }
 
-/* Mobile */
 @media (max-width: 540px) {
   .about {
     padding: 72px 0;

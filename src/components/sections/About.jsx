@@ -16,7 +16,6 @@ export default function About() {
     <section id="about" className="about">
       <div className="about-inner">
 
-        {/* Left — visual panel */}
         <div className="about-visual" data-reveal="left">
           <div className="about-visual-canvas">
             <GradientBlinds blindCount={30} disableHover />
@@ -28,7 +27,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Right — content */}
         <div className="about-content" data-reveal="right" data-reveal-delay="120">
           <h2 className="about-headline">
             Delivering technology services that fit the way your business works
@@ -37,7 +35,6 @@ export default function About() {
             Asbir Tech is a web development and IT consulting company established in 2016 in the Philippines. In 2022, it expanded to Australia when one of its partners emigrated. Since inception, we've served IT and non-IT organisations — helping each achieve their goals with digital solutions and emerging technologies.
           </p>
 
-          {/* Team strip */}
           <div className="about-team-strip">
             <div className="about-team-avatars">
               {avatars.map((a, i) => (
