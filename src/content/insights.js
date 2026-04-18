@@ -1,0 +1,32 @@
+export const insights = [
+  {
+    id: 'claude-design',
+    category: 'AI',
+    title: 'Introducing Claude Design by Anthropic Labs',
+    variant: 'fire',
+    image: '/images/claudedesign.jpg',
+    author: { name: 'Anthropic', role: 'anthropic.com' },
+    date: 'Apr 17, 2026',
+    href: 'https://www.anthropic.com/news/claude-design-anthropic-labs',
+  },
+  {
+    id: 'amazon-globalstar',
+    category: 'Industry',
+    title: 'Amazon Buys Globalstar in Push for Space Internet',
+    variant: 'ember',
+    image: '/images/amazon.jpeg',
+    author: { name: 'New York Times', role: 'nytimes.com' },
+    date: 'Apr 14, 2026',
+    href: 'https://www.nytimes.com/2026/04/14/technology/amazon-buys-globalstar-space-internet.html',
+  },
+  {
+    id: 'openai-attack',
+    category: 'Security',
+    title: 'Man Who Attacked OpenAI CEO\'s Home Had List of AI Executives',
+    variant: 'gold',
+    image: '/images/openai.jpeg',
+    author: { name: 'New York Times', role: 'nytimes.com' },
+    date: 'Apr 13, 2026',
+    href: 'https://www.nytimes.com/2026/04/13/technology/man-who-attacked-openai-ceos-home-had-list-of-other-ai-executives.html',
+  },
+]

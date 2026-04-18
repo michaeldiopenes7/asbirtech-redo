@@ -1,0 +1,153 @@
+.contact {
+  background: #000;
+  padding: 120px 0;
+}
+
+.contact .container {
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.contact-card {
+  position: relative;
+  border-radius: 28px;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.contact-slat-wrap {
+  position: absolute;
+  inset: 0;
+}
+
+.contact-slat-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.contact-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 50% 50%, rgba(0,0,0,0.55) 0%, transparent 100%);
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 24px;
+  padding: 80px 40px;
+  max-width: 620px;
+}
+
+.contact-headline {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: #fff;
+  margin: 0;
+}
+
+.contact-desc {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.60);
+  margin: 0;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: 12px;
+  background: #fff;
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  margin-top: 8px;
+}
+
+.contact-btn:hover {
+  background: rgba(255, 255, 255, 0.88);
+}
+
+/* Inline contact details row */
+.contact-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+  margin-top: 4px;
+}
+
+.contact-meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.contact-meta-item a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.contact-meta-item a:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.contact-meta-divider {
+  display: inline-block;
+  width: 1px;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  margin: 0 14px;
+}
+
+/* ── Mobile ── */
+@media (max-width: 560px) {
+  .contact {
+    padding: 80px 0;
+  }
+
+  .contact .container {
+    padding: 0 20px;
+  }
+
+  .contact-card {
+    min-height: 360px;
+  }
+
+  .contact-content {
+    padding: 60px 24px;
+  }
+
+  .contact-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-meta-divider {
+    display: none;
+  }
+}

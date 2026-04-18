@@ -1,0 +1,58 @@
+.border-glow-card {
+  --edge-proximity: 0;
+  --cursor-angle: 0deg;
+  --edge-sensitivity: 30;
+  --border-radius: 20px;
+  --glow-padding: 40px;
+  --cone-spread: 25;
+  --fill-opacity: 0.5;
+
+  position: relative;
+  border-radius: var(--border-radius);
+  background: var(--card-bg);
+  isolation: isolate;
+  width: 100%;
+  height: 100%;
+}
+
+/* The animated edge glow */
+.border-glow-card .edge-light {
+  pointer-events: none;
+  position: absolute;
+  inset: calc(-1 * var(--glow-padding));
+  border-radius: calc(var(--border-radius) + var(--glow-padding));
+  opacity: calc(var(--edge-proximity) / var(--edge-sensitivity));
+  background: conic-gradient(
+    from calc(var(--cursor-angle) - calc(var(--cone-spread) * 1deg)),
+    transparent 0deg,
+    var(--glow-color) calc(var(--cone-spread) * 1deg),
+    var(--glow-color-60) calc(var(--cone-spread) * 2deg),
+    var(--glow-color-50) calc(var(--cone-spread) * 3deg),
+    var(--glow-color-40) calc(var(--cone-spread) * 4deg),
+    var(--glow-color-30) calc(var(--cone-spread) * 5deg),
+    var(--glow-color-20) calc(var(--cone-spread) * 6deg),
+    var(--glow-color-10) calc(var(--cone-spread) * 7deg),
+    transparent calc(var(--cone-spread) * 8deg) 360deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  padding: var(--glow-padding);
+  z-index: 0;
+  transition: opacity 0.15s ease;
+}
+
+.border-glow-card.sweep-active .edge-light {
+  opacity: 1;
+}
+
+.border-glow-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--border-radius);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
