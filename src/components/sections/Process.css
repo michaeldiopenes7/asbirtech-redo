@@ -222,21 +222,12 @@
 
 @media (max-width: 860px) {
   .process-spine {
-    left: 32px;
-    transform: none;
-    width: 56px;
-  }
-
-  .process-spine-num {
-    top: calc((var(--step-index) * (100% / 3)) + (100% / 6) - 28px);
-    width: 56px;
-    height: 56px;
-    font-size: 16px;
+    display: none;
   }
 
   .process-step {
     grid-template-columns: 1fr;
-    padding-left: 80px;
+    padding-left: 0;
     min-height: unset;
   }
 
@@ -260,21 +251,6 @@
 
   .process-header {
     margin-bottom: 52px;
-  }
-
-  .process-spine {
-    left: 20px;
-    width: 44px;
-  }
-
-  .process-spine-num {
-    width: 44px;
-    height: 44px;
-    font-size: 14px;
-  }
-
-  .process-step {
-    padding-left: 60px;
   }
 
   .process-step-desc {

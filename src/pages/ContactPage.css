@@ -1,0 +1,404 @@
+/* ═══════════════════════════════════════
+   Contact page
+   ═══════════════════════════════════════ */
+.cp-page {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Full-bleed fire hero ── */
+.cp-hero-section {
+  position: relative;
+  height: 52vh;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.cp-fire-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.cp-fire-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.cp-hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.08) 60%, rgba(0,0,0,0.65) 100%);
+  pointer-events: none;
+}
+
+@media (max-width: 560px) {
+  .cp-hero-section {
+    height: 20vh;
+    min-height: 240px;
+  }
+
+  .cp-hero-vignette {
+    background: radial-gradient(ellipse 100% 100% at 50% 50%, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.75) 100%);
+  }
+}
+
+.cp-nav-wrap {
+  position: relative;
+  z-index: 10;
+}
+
+.cp-hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-bottom: 32px;
+}
+
+.cp-hero-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.40);
+  margin: 0 0 16px;
+}
+
+.cp-hero-title {
+  font-size: clamp(52px, 8vw, 112px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin: 0;
+}
+
+.cp-main {
+  flex: 1;
+  padding: 72px 0 120px;
+}
+
+/* ── Hero text ── */
+.cp-hero {
+  margin-bottom: 72px;
+  max-width: 600px;
+}
+
+.cp-headline {
+  font-size: clamp(40px, 5.5vw, 72px);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.034em;
+  color: #fff;
+  margin: 0 0 20px;
+}
+
+.cp-subheadline {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.52);
+  margin: 0;
+  max-width: 460px;
+}
+
+/* ── Two-col grid ── */
+.cp-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+/* ─────────────────────────────────────
+   Map column
+───────────────────────────────────── */
+.cp-map-col {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cp-map-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: #0d0d0d;
+}
+
+.cp-map-leaflet {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Dark tiles only — keeps the orange marker unaffected */
+.cp-map-leaflet .leaflet-tile-pane {
+  filter: grayscale(1) invert(1) brightness(0.75) contrast(0.86) hue-rotate(180deg);
+}
+
+.cp-marker {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cp-marker-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 0 6px rgba(249, 115, 22, 0.5);
+}
+
+.cp-marker-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(249, 115, 22, 0.4);
+}
+
+.cp-map-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 75% 75% at 50% 50%,
+    transparent 35%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ── Address chip ── */
+.cp-address {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.50);
+  font-size: 13px;
+  font-family: inherit;
+  line-height: 1.6;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  transition: border-color 0.2s, background 0.2s, color 0.2s;
+}
+
+.cp-address:hover {
+  border-color: rgba(255, 255, 255, 0.13);
+  background: rgba(255, 255, 255, 0.055);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.cp-address-icon {
+  color: rgba(255, 255, 255, 0.35);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cp-address-text {
+  flex: 1;
+}
+
+.cp-address-copy {
+  flex-shrink: 0;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.30);
+  margin-top: 1px;
+}
+
+/* ─────────────────────────────────────
+   CTA column
+───────────────────────────────────── */
+.cp-cta-col {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cp-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cp-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 16px;
+  border: none;
+  background: transparent;
+  text-decoration: none;
+  transition: background 0.22s, transform 0.22s;
+}
+
+.cp-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.cp-card-icon {
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: border-color 0.22s, background 0.22s;
+}
+
+.cp-card:hover .cp-card-icon {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.cp-card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.cp-card-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.30);
+}
+
+.cp-card-value {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cp-card-desc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.32);
+}
+
+.cp-card-arrow {
+  flex-shrink: 0;
+  color: rgba(255, 255, 255, 0.18);
+  transition: color 0.2s, transform 0.2s;
+}
+
+.cp-card:hover .cp-card-arrow {
+  color: rgba(255, 255, 255, 0.55);
+  transform: translate(2px, -2px);
+}
+
+/* ── Primary button ── */
+.cp-primary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 17px 32px;
+  border-radius: 12px;
+  background: #fff;
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.cp-primary-btn:hover {
+  background: rgba(255, 255, 255, 0.88);
+  transform: translateY(-1px);
+}
+
+.cp-primary-btn svg {
+  transition: transform 0.2s;
+}
+
+.cp-primary-btn:hover svg {
+  transform: translate(2px, -2px);
+}
+
+.cp-footnote {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════
+   Responsive
+   ═══════════════════════════════════════ */
+@media (max-width: 860px) {
+  .cp-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .cp-main {
+    padding: 56px 0 100px;
+  }
+
+  .cp-map-wrap {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 560px) {
+  .cp-main {
+    padding: 48px 0 80px;
+  }
+
+  .cp-hero {
+    margin-bottom: 48px;
+  }
+
+  .cp-headline br {
+    display: none;
+  }
+
+  .cp-map-wrap {
+    aspect-ratio: 4 / 3;
+  }
+
+  .cp-card {
+    padding: 16px;
+  }
+}

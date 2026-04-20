@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import App from './App'
 import ArticlePage from './pages/ArticlePage'
+import ContactPage from './pages/ContactPage'
 import NotFoundPage from './pages/NotFoundPage'
 import './index.css'
 
@@ -11,6 +12,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/articles/:id" element={<ArticlePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

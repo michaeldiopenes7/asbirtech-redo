@@ -14,7 +14,7 @@ export default function Insights() {
               Latest articles &amp;<br />industry insights
             </h2>
           </div>
-          <a href="/articles" className="insights-view-all">
+          <a href="/articles" className="insights-view-all insights-view-all--desktop">
             View more Articles <LuArrowUpRight aria-hidden="true" />
           </a>
         </div>
@@ -40,6 +40,12 @@ export default function Insights() {
               </div>
             </Link>
           ))}
+        </div>
+
+        <div className="insights-footer" data-reveal>
+          <a href="/articles" className="insights-view-all insights-view-all--mobile">
+            View more Articles <LuArrowUpRight aria-hidden="true" />
+          </a>
         </div>
 
       </div>

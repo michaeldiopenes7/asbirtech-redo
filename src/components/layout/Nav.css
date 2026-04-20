@@ -217,8 +217,8 @@
   overflow: hidden;
 }
 
-/* Tablet: hide nav links, keep logo + CTA */
-@media (max-width: 768px) {
+/* Tablet: hide nav links and Contact Us button, show hamburger */
+@media (max-width: 900px) {
   .hero-nav {
     padding: 20px 0;
     grid-template-columns: 1fr auto;
@@ -227,22 +227,6 @@
 
   .nav-links {
     display: none;
-  }
-
-  .btn-contact {
-    padding: 9px 18px;
-    font-size: 13px;
-  }
-}
-
-/* Small mobile: hide Contact Us, show hamburger */
-@media (max-width: 600px) {
-  .hero-nav {
-    padding: 16px 0;
-  }
-
-  .nav-logo-image {
-    height: 28px;
   }
 
   .btn-contact {
@@ -255,6 +239,17 @@
 
   .nav-mobile-menu {
     display: flex;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 480px) {
+  .hero-nav {
+    padding: 16px 0;
+  }
+
+  .nav-logo-image {
+    height: 28px;
   }
 }
 

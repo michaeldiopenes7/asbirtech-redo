@@ -1,9 +1,12 @@
 import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import logo from '../../assets/images/asbirtechlogo.png'
 import './Nav.css'
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const { pathname } = useLocation()
+  const isContact = pathname === '/contact'
   const [isClosing, setIsClosing] = useState(false)
 
   const handleMenuToggle = () => {
@@ -41,7 +44,7 @@ export default function Nav() {
       </ul>
 
       <div className="nav-cta">
-        <a href="/#contact" className="btn-contact">Contact Us</a>
+        {!isContact && <a href="/contact" className="btn-contact">Contact Us</a>}
         <button
           className="nav-menu-btn"
           aria-label="Toggle menu"
@@ -63,7 +66,7 @@ export default function Nav() {
           <a href="/#about" onClick={handleMenuClose}>About Us</a>
           <a href="/#work" onClick={handleMenuClose}>Showcase</a>
           <a href="/#articles" onClick={handleMenuClose}>Articles</a>
-          <a href="/#contact" className="nav-mobile-cta" onClick={handleMenuClose}>Contact Us</a>
+          {!isContact && <a href="/contact" className="nav-mobile-cta" onClick={handleMenuClose}>Contact Us</a>}
         </div>
       )}
     </nav>

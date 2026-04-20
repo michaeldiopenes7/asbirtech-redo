@@ -179,6 +179,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .showcase .container {
+    padding: 0 24px;
+  }
+}
+
 @media (max-width: 540px) {
   .showcase {
     padding: 64px 0;

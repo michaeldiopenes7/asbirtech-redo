@@ -144,6 +144,12 @@
   }
 }
 
+@media (max-width: 768px) {
+  .services .container {
+    padding: 0 24px;
+  }
+}
+
 /* Mobile */
 @media (max-width: 540px) {
   .services {

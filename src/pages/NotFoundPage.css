@@ -105,6 +105,12 @@
   flex-shrink: 0;
 }
 
+@media (max-width: 768px) {
+  .nf-content {
+    padding: 40px 24px 80px;
+  }
+}
+
 @media (max-width: 560px) {
   .nf-header {
     padding: 28px 24px;
