@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   background: #000;
-  overflow: hidden;
 }
 
 /* Fire fills entire viewport */
@@ -34,7 +33,7 @@
 /* Nav above fire */
 .nf-page .hero-nav {
   position: relative;
-  z-index: 2;
+  z-index: 100;
 }
 
 /* Centered content */

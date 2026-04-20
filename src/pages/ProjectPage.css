@@ -1,0 +1,383 @@
+/* ── Nav ── */
+.pp-nav-wrap {
+  position: relative;
+  z-index: 100;
+}
+
+/* ── Main ── */
+.pp-main {
+  background: #000;
+  min-height: 100vh;
+}
+
+/* ── Title ── */
+.pp-hero {
+  padding: 80px 40px 0;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pp-title {
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0;
+}
+
+/* ── Meta row ── */
+.pp-meta-wrap {
+  max-width: 860px;
+  margin: 40px auto 0;
+  padding: 0 40px;
+}
+
+.pp-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.pp-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pp-meta-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pp-meta-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pp-meta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.pp-meta-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.pp-meta-sub {
+  font-size: 13px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.40);
+  line-height: 1.3;
+}
+
+.pp-meta-sep {
+  width: 1px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.10);
+  flex-shrink: 0;
+}
+
+.pp-meta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.40);
+  text-decoration: none;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 8px;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.pp-meta-link:hover {
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* ── WebGL cover ── */
+.pp-cover {
+  max-width: 1100px;
+  margin: 40px auto 0;
+  padding: 0 40px;
+}
+
+.pp-visual-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #0d0d0d;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.pp-visual-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Body ── */
+.pp-body {
+  max-width: 780px;
+  margin: 56px auto 0;
+  padding: 0 40px 100px;
+}
+
+.pp-description {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 32px;
+}
+
+.pp-section-heading {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 56px 0 16px;
+  line-height: 1.2;
+}
+
+.pp-paragraph {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 0 0 22px;
+}
+
+.pp-paragraph strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.pp-list {
+  margin: 0 0 28px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.pp-list-item {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.pp-list-item strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.pp-figure {
+  margin: 48px -80px;
+}
+
+.pp-figure-img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+}
+
+.pp-figure-caption {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* ── Related ── */
+.pp-related {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 80px 40px;
+}
+
+.pp-related-inner {
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.pp-related-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.pp-related-heading {
+  font-size: clamp(22px, 3vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0;
+}
+
+.pp-related-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.40);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.pp-related-view-all:hover {
+  color: #fff;
+}
+
+.pp-related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.pp-related-card {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.pp-related-visual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: #0d0d0d;
+}
+
+.pp-related-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 4px;
+  padding: 20px 20px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.20) 50%, transparent 100%);
+}
+
+.pp-related-client {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.pp-related-title {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+  line-height: 1.3;
+  transition: color 0.15s;
+}
+
+.pp-related-card:hover .pp-related-title {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .pp-hero {
+    padding: 56px 20px 0;
+  }
+
+  .pp-meta-wrap {
+    padding: 0 20px;
+  }
+
+  .pp-cover {
+    padding: 0 20px;
+  }
+
+  .pp-cover .pp-visual-wrap {
+    aspect-ratio: 16 / 9;
+    border-radius: 14px;
+  }
+
+  .pp-body {
+    padding: 0 20px 80px;
+  }
+
+  .pp-figure {
+    margin: 36px 0;
+  }
+
+  .pp-related {
+    padding: 56px 20px;
+  }
+
+  .pp-related-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .pp-related-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .pp-meta-row {
+    gap: 16px;
+  }
+
+  .pp-meta-sep {
+    display: none;
+  }
+
+  .pp-meta-link {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 560px) and (max-width: 768px) {
+  .pp-related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,27 +1,17 @@
 import { useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import logo from '../../assets/images/asbirtechlogo.png'
 import './Nav.css'
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isClosing, setIsClosing] = useState(false)
   const { pathname } = useLocation()
   const isContact = pathname === '/contact'
-  const [isClosing, setIsClosing] = useState(false)
 
-  const handleMenuToggle = () => {
-    if (menuOpen) {
-      setIsClosing(true)
-      setTimeout(() => {
-        setMenuOpen(false)
-        setIsClosing(false)
-      }, 250)
-    } else {
-      setMenuOpen(true)
-    }
-  }
+  const openMenu = () => setMenuOpen(true)
 
-  const handleMenuClose = () => {
+  const closeMenu = () => {
     setIsClosing(true)
     setTimeout(() => {
       setMenuOpen(false)
@@ -29,14 +19,16 @@ export default function Nav() {
     }, 250)
   }
 
+  const toggleMenu = () => (menuOpen ? closeMenu() : openMenu())
+
   return (
     <nav className="hero-nav">
-      <div className="nav-logo">
-        <img src={logo} alt="ASBIR" className="nav-logo-image" />
-      </div>
+      <Link to="/" className="nav-logo">
+        <img src={logo} alt="Asbir Tech" className="nav-logo-image" />
+      </Link>
 
       <ul className="nav-links">
-        <li><a href="/">Home</a></li>
+        <li><Link to="/">Home</Link></li>
         <li><a href="/#services">Services</a></li>
         <li><a href="/#about">About Us</a></li>
         <li><a href="/#work">Showcase</a></li>
@@ -44,29 +36,32 @@ export default function Nav() {
       </ul>
 
       <div className="nav-cta">
-        {!isContact && <a href="/contact" className="btn-contact">Contact Us</a>}
+        {!isContact && (
+          <Link to="/contact" className="btn-contact">Contact Us</Link>
+        )}
         <button
           className="nav-menu-btn"
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           aria-expanded={menuOpen}
-          onClick={handleMenuToggle}
+          onClick={toggleMenu}
         >
           <span className={`nav-menu-icon ${menuOpen ? 'is-open' : ''}`}>
-            <span></span>
-            <span></span>
-            <span></span>
+            <span />
+            <span />
+            <span />
           </span>
         </button>
       </div>
 
       {menuOpen && (
         <div className={`nav-mobile-menu ${isClosing ? 'closing' : ''}`}>
-          <a href="/" onClick={handleMenuClose}>Home</a>
-          <a href="/#services" onClick={handleMenuClose}>Services</a>
-          <a href="/#about" onClick={handleMenuClose}>About Us</a>
-          <a href="/#work" onClick={handleMenuClose}>Showcase</a>
-          <a href="/#articles" onClick={handleMenuClose}>Articles</a>
-          <a href="/contact" className="nav-mobile-cta" onClick={handleMenuClose}>Contact Us</a>
+          <Link to="/" className="nav-mobile-link" onClick={closeMenu}>Home</Link>
+          <a href="/#services" className="nav-mobile-link" onClick={closeMenu}>Services</a>
+          <a href="/#about" className="nav-mobile-link" onClick={closeMenu}>About Us</a>
+          <a href="/#work" className="nav-mobile-link" onClick={closeMenu}>Showcase</a>
+          <a href="/#articles" className="nav-mobile-link" onClick={closeMenu}>Articles</a>
+          <div className="nav-mobile-divider" />
+          <Link to="/contact" className="nav-mobile-cta" onClick={closeMenu}>Contact Us</Link>
         </div>
       )}
     </nav>

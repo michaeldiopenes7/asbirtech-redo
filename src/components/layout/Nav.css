@@ -8,6 +8,7 @@
   gap: 24px;
 }
 
+/* ── Logo ── */
 .nav-logo {
   display: flex;
   align-items: center;
@@ -23,7 +24,7 @@
   object-fit: contain;
 }
 
-/* Nav links with subtle outline container */
+/* ── Desktop nav links ── */
 .nav-links {
   list-style: none;
   display: flex;
@@ -41,36 +42,67 @@
 .nav-links a {
   text-decoration: none;
   color: var(--off-white);
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
-  letter-spacing: -0.030em;
-  transition: color 0.1s;
+  letter-spacing: -0.02em;
+  transition: color 0.15s;
   white-space: nowrap;
-  position: relative;
 }
 
 .nav-links a:hover {
-  color: white;
+  color: var(--white);
 }
 
+/* ── Desktop CTA area ── */
 .nav-cta {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap: 12px;
 }
 
-/* Hamburger / close menu button - hidden on desktop */
+/* ── Contact Us button (desktop) ── */
+.btn-contact {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--off-white);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  padding: 10px 22px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(8px);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  white-space: nowrap;
+}
+
+.btn-contact:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
+  color: var(--white);
+}
+
+/* ── Hamburger button ── */
 .nav-menu-btn {
   display: none;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  border: none;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--border);
+  border-radius: 10px;
   cursor: pointer;
   padding: 0;
   color: var(--white);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.nav-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 .nav-menu-icon {
@@ -80,8 +112,8 @@
   justify-content: center;
   align-items: center;
   gap: 5px;
-  width: 22px;
-  height: 22px;
+  width: 18px;
+  height: 18px;
 }
 
 .nav-menu-icon span {
@@ -90,14 +122,13 @@
   height: 1.5px;
   background: var(--white);
   border-radius: 2px;
-  transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .nav-menu-icon.is-open span {
   opacity: 0;
 }
 
-/* X icon shown when open */
 .nav-menu-icon::before,
 .nav-menu-icon::after {
   content: '';
@@ -120,104 +151,85 @@
   opacity: 1;
 }
 
-/* Mobile menu panel */
+/* ── Mobile menu panel ── */
 .nav-mobile-menu {
-  display: flex;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 8px);
   left: 0;
   right: 0;
+  display: flex;
   flex-direction: column;
-  padding: 28px 24px;
-  margin-top: 12px;
-  background: rgba(10, 10, 10, 0.98);
-  backdrop-filter: blur(20px);
+  padding: 8px;
+  background: rgba(12, 12, 12, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
+  border-radius: 16px;
   z-index: 1000;
-  gap: 4px;
-  animation: slideDown 0.3s ease-out forwards;
-  opacity: 0;
-  transform: translateY(-20px);
-}
-
-@keyframes slideDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideUp {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
+  animation: menuSlideDown 0.2s ease-out forwards;
 }
 
 .nav-mobile-menu.closing {
-  animation: slideUp 0.25s ease-in forwards;
+  animation: menuSlideUp 0.2s ease-in forwards;
 }
 
-.nav-mobile-menu a {
+@keyframes menuSlideDown {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes menuSlideUp {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(-8px); }
+}
+
+/* Nav links inside mobile menu */
+.nav-mobile-link {
   display: block;
   text-decoration: none;
-  color: var(--white);
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: -0.020em;
-  padding: 14px 4px;
-  transition: color 0.2s;
-}
-
-.nav-mobile-menu a:hover {
-  color: var(--off-white);
-}
-
-.nav-mobile-menu .nav-mobile-cta {
-  margin-top: 20px;
-  padding: 14px 22px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.75);
   font-size: 15px;
   font-weight: 500;
-  text-align: left;
-  align-self: flex-start;
+  letter-spacing: -0.02em;
+  padding: 12px 16px;
+  border-radius: 10px;
+  transition: background 0.15s, color 0.15s;
 }
 
-.nav-mobile-menu .nav-mobile-cta:hover {
-  background: rgba(255, 255, 255, 0.04);
+.nav-mobile-link:hover {
+  background: rgba(255, 255, 255, 0.06);
   color: var(--white);
 }
 
-/* Contact button */
-.btn-contact {
-  display: inline-block;
-  text-decoration: none;
-  color: var(--off-white);
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.030em;
-  padding: 10px 24px;
-  border: 1.5px solid var(--border);
-  border-radius: 12px;
+/* Divider */
+.nav-mobile-divider {
+  height: 1px;
   background: rgba(255, 255, 255, 0.07);
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  position: relative;
-  overflow: hidden;
+  margin: 4px 8px;
 }
 
-/* Tablet: hide nav links and Contact Us button, show hamburger */
+/* Contact Us CTA inside mobile menu */
+.nav-mobile-cta {
+  display: block;
+  text-decoration: none;
+  color: #000;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  padding: 12px 16px;
+  border-radius: 10px;
+  background: #fff;
+  border: 1px solid #fff;
+  transition: background 0.15s, color 0.15s;
+  margin-top: 2px;
+  text-align: center;
+}
+
+.nav-mobile-cta:hover {
+  background: rgba(255, 255, 255, 0.88);
+}
+
+/* ── Breakpoints ── */
 @media (max-width: 900px) {
   .hero-nav {
     padding: 20px 0;
@@ -236,13 +248,8 @@
   .nav-menu-btn {
     display: inline-flex;
   }
-
-  .nav-mobile-menu {
-    display: flex;
-  }
 }
 
-/* Small mobile */
 @media (max-width: 480px) {
   .hero-nav {
     padding: 16px 0;
@@ -253,7 +260,6 @@
   }
 }
 
-/* Very small */
 @media (max-width: 360px) {
   .hero-nav {
     padding: 14px 0;
