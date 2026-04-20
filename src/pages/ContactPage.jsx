@@ -123,10 +123,23 @@ function LeafletMap() {
         center: [LAT, LNG],
         zoom: 15,
         zoomControl: false,
-        scrollWheelZoom: false,
+        scrollWheelZoom: 'center',
         dragging: false,
         attributionControl: false,
       })
+
+      // Enable drag only after the user clicks into the map
+      mapRef.current.addEventListener('click', () => {
+        map.dragging.enable()
+      })
+
+      // Disable drag when mouse/touch leaves the map
+      mapRef.current.addEventListener('mouseleave', () => {
+        map.dragging.disable()
+      })
+
+      // Zoom control — positioned bottom-right, styled via CSS
+      L.control.zoom({ position: 'bottomright' }).addTo(map)
 
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
 
