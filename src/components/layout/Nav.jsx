@@ -66,7 +66,7 @@ export default function Nav() {
           <a href="/#about" onClick={handleMenuClose}>About Us</a>
           <a href="/#work" onClick={handleMenuClose}>Showcase</a>
           <a href="/#articles" onClick={handleMenuClose}>Articles</a>
-          {!isContact && <a href="/contact" className="nav-mobile-cta" onClick={handleMenuClose}>Contact Us</a>}
+          <a href="/contact" className="nav-mobile-cta" onClick={handleMenuClose}>Contact Us</a>
         </div>
       )}
     </nav>
