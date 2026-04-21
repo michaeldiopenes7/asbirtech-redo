@@ -1,8 +1,8 @@
 import { useRef, useState, useEffect } from 'react'
 import { LuArrowUpRight, LuMail, LuPhone, LuCalendar, LuMapPin } from 'react-icons/lu'
-import fireFrag from '../shaders/showcase-fire.glsl'
-import Nav from '../components/layout/Nav'
-import logo from '../assets/images/asbirtechlogo.png'
+import fireFrag from '../../shaders/showcase-fire.glsl'
+import Nav from '../../components/layout/Nav'
+import logo from '../../assets/images/asbirtechlogo.png'
 import 'leaflet/dist/leaflet.css'
 import './ContactPage.css'
 

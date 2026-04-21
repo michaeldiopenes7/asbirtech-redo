@@ -1,9 +1,9 @@
 import { useEffect } from 'react'
 import { useParams, Link, Navigate, useLocation } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'
-import { insights } from '../content/insights'
-import Nav from '../components/layout/Nav'
-import logo from '../assets/images/asbirtechlogo.png'
+import { insights } from '../../content/insights'
+import Nav from '../../components/layout/Nav'
+import logo from '../../assets/images/asbirtechlogo.png'
 import './ArticlePage.css'
 
 function ScrollToTop() {

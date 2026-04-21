@@ -1,0 +1,277 @@
+.tp-page {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Fire hero ── */
+.tp-hero-section {
+  position: relative;
+  height: 52vh;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tp-fire-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.tp-fire-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.tp-hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.08) 60%, rgba(0,0,0,0.65) 100%);
+  pointer-events: none;
+}
+
+.tp-nav-wrap {
+  position: relative;
+  z-index: 10;
+}
+
+.tp-hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 32px;
+}
+
+.tp-hero-title {
+  font-size: clamp(52px, 8vw, 112px);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin: 0;
+}
+
+/* ── Main ── */
+.tp-main {
+  flex: 1;
+  padding: 72px 0 120px;
+}
+
+/* ── Intro ── */
+.tp-intro {
+  margin-bottom: 80px;
+  max-width: 640px;
+}
+
+.tp-headline {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.034em;
+  color: #fff;
+  margin: 0 0 20px;
+}
+
+.tp-subheadline {
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.52);
+  margin: 0;
+}
+
+/* ── Filter bar ── */
+.tp-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 56px;
+}
+
+.tp-filter-btn {
+  padding: 7px 16px;
+  border-radius: 99px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  white-space: nowrap;
+}
+
+.tp-filter-btn:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.tp-filter-btn--active {
+  background: #fff;
+  border-color: #fff;
+  color: #000;
+}
+
+.tp-filter-btn--active:hover {
+  background: #e8e8e8;
+  border-color: #e8e8e8;
+  color: #000;
+}
+
+/* ── Department section ── */
+.tp-dept {
+  margin-bottom: 64px;
+}
+
+.tp-dept-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.tp-dept-name {
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+}
+
+.tp-dept-count {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.30);
+  letter-spacing: 0.04em;
+}
+
+/* ── Member grid ── */
+.tp-members-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* ── Member card — thumbnail style ── */
+.tp-member-card {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #141414;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.25s;
+}
+
+
+/* Placeholder fill — replace with <img> when photos are available */
+.tp-member-avatar {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    #1c1c1c 0%,
+    #111 60%,
+    #0a0a0a 100%
+  );
+  transition: opacity 0.25s;
+}
+
+/* Subtle noise texture overlay */
+.tp-member-avatar::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.tp-member-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.tp-member-name {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.tp-member-role {
+  font-size: 11px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.50);
+  line-height: 1.4;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .tp-members-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tp-main {
+    padding: 56px 0 100px;
+  }
+
+  .tp-intro {
+    margin-bottom: 56px;
+  }
+
+  .tp-members-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .tp-hero-section {
+    height: 20vh;
+    min-height: 240px;
+  }
+
+  .tp-hero-vignette {
+    background: radial-gradient(ellipse 100% 100% at 50% 50%, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.30) 55%, rgba(0,0,0,0.75) 100%);
+  }
+
+  .tp-intro {
+    margin-bottom: 40px;
+  }
+
+  .tp-dept {
+    margin-bottom: 48px;
+  }
+
+  .tp-members-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+
+  .tp-member-info {
+    padding: 14px 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .tp-members-grid {
+    grid-template-columns: 1fr;
+  }
+}

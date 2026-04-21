@@ -1,4 +1,5 @@
 import { LuArrowUpRight } from 'react-icons/lu'
+import { Link } from 'react-router-dom'
 import GradientBlinds from '../webgl/GradientBlinds'
 import testImage from '../../assets/images/tech.jpg'
 import './About.css'
@@ -49,9 +50,9 @@ export default function About() {
             <div className="about-team-meta">
               <span className="about-team-count">40+ people</span>
             </div>
-            <a href="/team" className="about-team-link">
+            <Link to="/#" className="about-team-link">
               Meet the team <LuArrowUpRight aria-hidden="true" />
-            </a>
+            </Link>
           </div>
         </div>
 

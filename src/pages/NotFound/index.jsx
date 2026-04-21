@@ -1,9 +1,9 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'
-import fireFrag from '../shaders/showcase-fire.glsl'
-import Nav from '../components/layout/Nav'
-import logo from '../assets/images/asbirtechlogo.png'
+import fireFrag from '../../shaders/showcase-fire.glsl'
+import Nav from '../../components/layout/Nav'
+import logo from '../../assets/images/asbirtechlogo.png'
 import './NotFoundPage.css'
 
 const VERT = `attribute vec2 a_pos; void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }`

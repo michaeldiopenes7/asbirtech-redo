@@ -1,0 +1,85 @@
+export const departments = [
+  {
+    id: 'leadership',
+    name: 'Executives',
+    members: [
+      { name: 'Asbir, Muhammad Syarief', role: 'Chief Executive Officer' },
+      { name: 'Orozco, Paul Brett',      role: 'Chief Operations Officer' },
+      { name: 'Llena, Eduard',           role: 'Marketing OIC' },
+    ],
+  },
+  {
+    id: 'project-management',
+    name: 'Project Management',
+    members: [
+      { name: 'Domingo, Jason Florante', role: 'PM / UX Testing / EPMO' },
+      { name: 'Balaguer, Sheera Nister', role: 'Project Manager / Administrative' },
+      { name: 'Maypa, Lloyd Kenneth',    role: 'Project Manager / Scrum Master' },
+    ],
+  },
+  {
+    id: 'engineering',
+    name: 'Engineering',
+    members: [
+      { name: 'Talinting, Rigo Rey',      role: 'Staff Engineer' },
+      { name: 'Labastilla, Arnold',        role: 'Staff Engineer' },
+      { name: 'Salazar, Jed Justin',       role: 'Staff Engineer' },
+      { name: 'Abuyabor, Jose Ryan',       role: 'Senior Software Engineer' },
+      { name: 'Brosas, John Fiel',         role: 'Senior Security Engineer' },
+      { name: 'Brosas, Juni',              role: 'Senior Software Engineer' },
+      { name: 'Cid, Raymond Adrian',       role: 'Senior Game Engineer' },
+      { name: 'Dayado, Leonil',            role: 'Senior Software Engineer' },
+      { name: 'Valencia, Ed Paul',         role: 'Senior Software Engineer' },
+      { name: 'Amaro, Lanice',             role: 'Software Engineer' },
+      { name: 'Bergado, Sylvester',        role: 'Software Engineer' },
+      { name: 'Dogomeo, Ronald',           role: 'Software Engineer' },
+      { name: 'Duhaylungsod, Rigie',       role: 'Software Engineer' },
+      { name: 'Morimonte, Emmanuel',       role: 'Server Administrator' },
+      { name: 'Pascua, Ronald',            role: 'Software Engineer' },
+      { name: 'Talingting, Richy RV',      role: 'Software Engineer' },
+      { name: 'Valencia, Ely Jose',        role: 'Software Engineer' },
+      { name: 'Arnesto, Arnold',           role: 'Junior Software Engineer' },
+      { name: 'Pagnanawon, Allen',         role: 'Junior Software Engineer' },
+      { name: 'Palallos, Hamuel',          role: 'Junior Software Engineer' },
+      { name: 'Pasulohan, Frances',        role: 'Junior Software Engineer' },
+    ],
+  },
+  {
+    id: 'product-design',
+    name: 'Product Design',
+    members: [
+      { name: 'Abines, Ada Katrina',    role: 'Product Design Manager' },
+      { name: 'Jo, Kenanaiah',          role: 'UI/UX Designer' },
+      { name: 'Diopenes, Michael John', role: 'UI/UX Designer' },
+      { name: 'Alumbre, Claire',        role: 'Junior UI/UX Designer' },
+    ],
+  },
+  {
+    id: 'marketing',
+    name: 'Marketing',
+    members: [
+      { name: 'Albiso, John Rey',      role: 'Content Strategist' },
+      { name: 'Jul, Bennajir',         role: 'Content Writer' },
+      { name: 'Dacua, Jean Luis',      role: 'Marketing Specialist' },
+      { name: 'Dequito, Marjun',       role: 'Graphics Designer' },
+      { name: 'Fernando, Niko Angelo', role: '3D Artist (Animator)' },
+      { name: 'Rio, John',             role: 'Multimedia Designer' },
+    ],
+  },
+  {
+    id: 'qa',
+    name: 'Quality Assurance',
+    members: [
+      { name: 'Salazar, May Faith',   role: 'Quality Assurance Manager' },
+      { name: 'Beschorner, Patric',   role: 'Quality Assurance Analyst' },
+      { name: 'Mercado, Elmer',       role: 'Quality Assurance Analyst' },
+    ],
+  },
+  {
+    id: 'admin',
+    name: 'Research & Admin Works',
+    members: [
+      { name: 'Infante, Fabe Hillary', role: 'Researcher / Admin Works' },
+    ],
+  },
+]
