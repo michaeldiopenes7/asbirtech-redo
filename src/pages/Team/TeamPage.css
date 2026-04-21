@@ -175,24 +175,15 @@
 }
 
 
-/* Placeholder fill — replace with <img> when photos are available */
 .tp-member-avatar {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    160deg,
-    #1c1c1c 0%,
-    #111 60%,
-    #0a0a0a 100%
-  );
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  filter: grayscale(100%);
   transition: opacity 0.25s;
-}
-
-/* Subtle noise texture overlay */
-.tp-member-avatar::after {
-  content: '';
-  position: absolute;
-  inset: 0;
 }
 
 .tp-member-info {

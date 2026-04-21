@@ -50,7 +50,7 @@ export default function About() {
             <div className="about-team-meta">
               <span className="about-team-count">40+ people</span>
             </div>
-            <Link to="/#" className="about-team-link">
+            <Link to="/team" className="about-team-link">
               Meet the team <LuArrowUpRight aria-hidden="true" />
             </Link>
           </div>
