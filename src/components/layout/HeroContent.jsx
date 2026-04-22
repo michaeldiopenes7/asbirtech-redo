@@ -4,8 +4,8 @@ export default function HeroContent() {
   return (
     <div className="hero-content">
       <h1 className="hero-headline">
-        <span className="line-1">We build digital</span>
-        <span className="line-2">products that work.</span>
+        <span className="line-1">Modern Problems Require</span>
+        <span className="line-2">Modern Solutions</span>
       </h1>
       <p className="hero-description">
         From streaming platforms to booking marketplaces — we design, build, and ship
