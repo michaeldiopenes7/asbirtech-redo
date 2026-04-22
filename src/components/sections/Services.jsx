@@ -11,7 +11,7 @@ export default function Services() {
       <div className="container">
         <div className="services-header" data-reveal>
           <h2 id="services-heading" className="services-headline">
-            What we do.
+            What we do
           </h2>
         </div>
 
