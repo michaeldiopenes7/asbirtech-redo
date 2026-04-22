@@ -176,6 +176,7 @@
   text-transform: capitalize;
   color: rgba(255, 255, 255, 0.45);
   margin: 0;
+  padding-bottom: 5px;
 }
 
 .sc-title {

@@ -9,6 +9,7 @@ function ScrollToTop() {
   return null
 }
 import ArticlePage from './pages/Article'
+import ArticlesPage from './pages/Articles'
 import ContactPage from './pages/Contact'
 import ProjectPage from './pages/Project'
 import TeamPage from './pages/Team'
@@ -22,6 +23,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/articles" element={<ArticlesPage />} />
         <Route path="/articles/:id" element={<ArticlePage />} />
         <Route path="/projects/:id" element={<ProjectPage />} />
         <Route path="/team" element={<TeamPage />} />

@@ -1,0 +1,265 @@
+.ap-page {
+  min-height: 100vh;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Fire hero ── */
+.ap-hero-section {
+  position: relative;
+  height: 52vh;
+  min-height: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+.ap-fire-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ap-fire-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.ap-hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(0,0,0,0.52) 0%, rgba(0,0,0,0.08) 60%, rgba(0,0,0,0.65) 100%);
+  pointer-events: none;
+}
+
+.ap-nav-wrap {
+  position: relative;
+  z-index: 10;
+}
+
+.ap-hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 32px;
+}
+
+.ap-hero-title {
+  font-size: clamp(52px, 8vw, 112px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: #fff;
+  margin: 0;
+  line-height: 1;
+}
+
+/* ── Main ── */
+.ap-main {
+  flex: 1;
+  background: #000;
+  padding: 80px 0 120px;
+}
+
+.ap-main .container {
+  max-width: 1250px;
+  padding: 0 40px;
+}
+
+/* ── Intro ── */
+.ap-intro {
+  margin-bottom: 64px;
+}
+
+.ap-headline {
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  color: #fff;
+  margin: 0 0 16px;
+  line-height: 1.1;
+}
+
+.ap-subheadline {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.50);
+  max-width: 520px;
+  margin: 0;
+}
+
+/* ── Grid ── */
+.ap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Card ── */
+.ap-card {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  background: #0d0d0d;
+  transition: border-color 0.25s ease;
+}
+
+.ap-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.ap-card-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111;
+}
+
+.ap-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.ap-card:hover .ap-card-image img {
+  transform: scale(1.04);
+}
+
+.ap-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+  padding: 20px;
+}
+
+.ap-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ap-card-category {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.ap-card-date {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.ap-card-title {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+  flex: 1;
+}
+
+.ap-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.ap-card-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ap-card-author-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+  text-transform: uppercase;
+}
+
+.ap-card-author-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ap-card-author-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ap-card-author-role {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.ap-card-arrow {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.25);
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.ap-card:hover .ap-card-arrow {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .ap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .ap-hero-section {
+    height: 40vh;
+    min-height: 240px;
+  }
+
+  .ap-main .container {
+    padding: 0 20px;
+  }
+
+  .ap-main {
+    padding: 56px 0 80px;
+  }
+
+  .ap-intro {
+    margin-bottom: 40px;
+  }
+
+  .ap-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
