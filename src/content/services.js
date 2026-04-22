@@ -2,43 +2,37 @@ export const services = [
   {
     id: 'web-dev',
     title: 'Web Development',
-    description:
-      'We build performant, scalable websites and web applications tailored to your business goals — from front-end to full-stack delivery.',
+    description: 'Full-stack websites and web apps — fast, scalable, and built to your spec.',
     icon: 'LuCode',
   },
   {
     id: 'consulting',
     title: 'Web & Cloud Consulting',
-    description:
-      'We guide you through cloud infrastructure, whether fully cloud-native or hybrid, and advise on the impact across technology, culture, and people.',
+    description: 'Cloud architecture advice grounded in what actually works in production.',
     icon: 'LuCloud',
   },
   {
     id: 'cost',
     title: 'Cost Reduction & Optimisation',
-    description:
-      'Our outsourcing services help clients optimise software development costs with expert teams ready to carry out turnkey projects end-to-end.',
+    description: 'Expert teams, lower overhead. Turnkey delivery without the agency markup.',
     icon: 'LuTrendingUp',
   },
   {
     id: 'transform',
     title: 'Digital Transformation',
-    description:
-      'From planning to implementation, we help clients fully leverage digital technologies for enterprise optimisation and long-term success.',
+    description: 'We help organisations move from legacy workflows to systems that scale.',
     icon: 'LuRocket',
   },
   {
     id: 'design',
     title: 'UX / UI Design',
-    description:
-      'We craft intuitive, conversion-focused interfaces that reflect your brand and deliver experiences your users actually enjoy.',
+    description: 'Interfaces your users enjoy — and your brand can be proud of.',
     icon: 'LuMonitor',
   },
   {
     id: 'automation',
     title: 'Process Automation',
-    description:
-      'We identify bottlenecks and build custom automations that remove manual effort, reduce errors, and free your team to focus on what matters.',
+    description: 'Cut manual work. We build automations that eliminate the bottlenecks slowing your team down.',
     icon: 'LuSettings2',
   },
 ]

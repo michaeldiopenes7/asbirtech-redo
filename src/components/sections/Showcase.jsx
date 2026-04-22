@@ -21,10 +21,7 @@ export default function Showcase() {
 
         <div className="showcase-top" data-reveal>
           <div className="showcase-header">
-            <h2 id="showcase-heading" className="showcase-headline">Our Works</h2>
-            <p className="showcase-subheadline">
-              A selection of projects built with purpose — from platforms to full-stack applications.
-            </p>
+            <h2 id="showcase-heading" className="showcase-headline">Our work</h2>
           </div>
           <div className="showcase-nav">
             <button className="showcase-nav-btn" onClick={() => scroll('prev')} aria-label="Previous project">

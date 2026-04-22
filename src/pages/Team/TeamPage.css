@@ -186,6 +186,10 @@
   transition: opacity 0.25s;
 }
 
+.tp-member-avatar--blank {
+  background: #1a1a1a;
+}
+
 .tp-member-info {
   position: absolute;
   bottom: 0;

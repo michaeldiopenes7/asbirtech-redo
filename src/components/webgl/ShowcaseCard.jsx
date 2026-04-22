@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
+import { LuArrowUpRight } from 'react-icons/lu'
 import fireFrag from '../../shaders/showcase-fire.glsl'
 import emberFrag from '../../shaders/showcase-ember.glsl'
 import goldFrag from '../../shaders/showcase-gold.glsl'
@@ -106,11 +107,12 @@ function WebGLThumb({ variant }) {
 export default function ShowcaseCard({ variant = 'fire', client, title, index, id }) {
   return (
     <Link to={`/projects/${id}`} className="sc-card" aria-label={`View ${client} case study`}>
-      <div className="sc-visual">
-        <WebGLThumb variant={variant} />
-      </div>
-      <div className="sc-body">
-        <span className="sc-index">{String(index).padStart(2, '0')}</span>
+      <WebGLThumb variant={variant} />
+      <div className="sc-overlay">
+        <div className="sc-overlay-top">
+          <span className="sc-index">{String(index).padStart(2, '0')}</span>
+          <span className="sc-arrow"><LuArrowUpRight /></span>
+        </div>
         <div className="sc-text">
           <p className="sc-client">{client}</p>
           <h3 className="sc-title">{title}</h3>

@@ -4,7 +4,11 @@ import fireFrag from '../../shaders/showcase-fire.glsl'
 import Nav from '../../components/layout/Nav'
 import { departments } from '../../content/team'
 import logo from '../../assets/images/asbirtechlogo.png'
-import placeholderPhoto from '../../assets/images/Mike.png'
+import sirSyarPhoto from '../../assets/images/SirSyar.png'
+
+const memberPhotos = {
+  'Asbir, Muhammad Syarief': sirSyarPhoto,
+}
 import './TeamPage.css'
 
 const VERT = `attribute vec2 a_pos; void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }`
@@ -145,7 +149,10 @@ export default function TeamPage() {
               <div className="tp-members-grid">
                 {dept.members.map(member => (
                   <div key={member.name} className="tp-member-card">
-                    <img className="tp-member-avatar" src={placeholderPhoto} alt="" aria-hidden="true" />
+                    {memberPhotos[member.name]
+                      ? <img className="tp-member-avatar" src={memberPhotos[member.name]} alt="" aria-hidden="true" />
+                      : <div className="tp-member-avatar tp-member-avatar--blank" aria-hidden="true" />
+                    }
                     <div className="tp-member-overlay" aria-hidden="true" />
                     <div className="tp-member-info">
                       <span className="tp-member-name">{member.name}</span>

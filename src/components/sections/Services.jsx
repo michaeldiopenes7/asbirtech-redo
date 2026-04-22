@@ -11,12 +11,8 @@ export default function Services() {
       <div className="container">
         <div className="services-header" data-reveal>
           <h2 id="services-heading" className="services-headline">
-            Designed for businesses who<br />want to grow smarter.
+            What we do.
           </h2>
-          <p className="services-subheadline">
-            Whether you're launching a product or scaling an existing one, our frameworks help you
-            clarify your offer, streamline delivery, and build technology that works for you.
-          </p>
         </div>
 
         <div className="services-grid">

@@ -1,5 +1,4 @@
 import { useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import ProcessSlat from '../webgl/ProcessSlat'
 import { steps } from '../../content/process'
 import './Process.css'
@@ -74,9 +73,6 @@ export default function Process() {
                 <div className="process-content">
                   <h3 className="process-step-title">{step.title}</h3>
                   <p className="process-step-desc">{step.description}</p>
-                  <Link to={step.cta.href} className="process-cta">
-                    {step.cta.label}
-                  </Link>
                 </div>
               </div>
             ))}

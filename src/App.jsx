@@ -18,8 +18,8 @@ export default function App() {
         <Hero />
         <Services />
         <About />
-        <Process />
         <Showcase />
+        <Process />
         <Insights />
         <Contact />
       </main>
