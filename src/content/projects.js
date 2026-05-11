@@ -9,42 +9,13 @@ export const projects = [
     logo: bzpLogo,
     client: 'BeetzeePLAY',
     tags: ['Streaming', 'Mobile'],
-    title: 'Streaming platform for mobile miniseries.',
+    title: 'BeetzeePLAY: Vertical Short Drama',
     description:
       'Built a scalable video streaming platform with subscription management, content delivery, and mobile-first experience for a growing audience of independent film lovers across Southeast Asia.',
     body: [
       {
-        type: 'heading',
-        text: 'The Challenge',
-      },
-      {
         type: 'paragraph',
-        text: 'BeetzeePLAY needed a streaming platform purpose-built for short-form mobile miniseries — not an adaptation of a desktop product. Existing solutions were too heavy, too expensive, and not designed for the scroll-first behavior of mobile audiences.',
-      },
-      {
-        type: 'paragraph',
-        text: 'The team also needed to manage a growing library of independent Filipino content with flexible subscription tiers, per-episode unlocks, and a creator revenue-sharing model.',
-      },
-      {
-        type: 'heading',
-        text: 'What We Built',
-      },
-      {
-        type: 'list',
-        items: [
-          { bold: 'Mobile-first player: ', text: 'Custom video player optimized for vertical and horizontal orientations with adaptive bitrate streaming.' },
-          { bold: 'Subscription engine: ', text: 'Tiered plans with trial periods, per-episode purchases, and promo code support.' },
-          { bold: 'Creator dashboard: ', text: 'Upload pipeline, analytics, and payout tracking for independent producers.' },
-          { bold: 'Content CMS: ', text: 'Internal tooling for metadata management, episode scheduling, and thumbnail generation.' },
-        ],
-      },
-      {
-        type: 'heading',
-        text: 'Outcome',
-      },
-      {
-        type: 'paragraph',
-        text: 'The platform launched with 12 original series and onboarded over 8,000 subscribers in the first two months. Average session length exceeded industry benchmarks by 34%, driven by the episode-unlock mechanic that encouraged binge progression without full subscription commitment.',
+        text: 'The app offers a curated mix of local and Asian series, perfectly paced for quick, high-quality entertainment on the go. To keep things simple, Beetzee Play is easy to access through E-wallets and is available on both the Apple App Store and Google Play Store.',
       },
     ],
   },
@@ -54,44 +25,9 @@ export const projects = [
     logo: planoutLogo,
     client: 'PlanOut',
     tags: ['Ticketing', 'Web App'],
-    title: 'Smarter way to sell tickets, built for event organizers.',
+    title: 'PlanOut: Your All-Access Pass to Adventure',
     description:
-      'End-to-end ticketing system with real-time inventory, QR check-in, and organizer dashboards that replaced a legacy spreadsheet workflow for mid-size event companies.',
-    body: [
-      {
-        type: 'heading',
-        text: 'The Problem',
-      },
-      {
-        type: 'paragraph',
-        text: 'PlanOut was managing ticket sales for concerts, corporate events, and community gatherings using a combination of Google Sheets, manual bank transfers, and WhatsApp confirmations. As events scaled past 500 attendees, the cracks became impossible to ignore — overselling, missed check-ins, and zero real-time visibility.',
-      },
-      {
-        type: 'heading',
-        text: 'Our Approach',
-      },
-      {
-        type: 'paragraph',
-        text: 'We built a unified platform that handles the entire event lifecycle from creation to post-event reporting. The architecture was designed around real-time inventory so that sold-out status propagates instantly across all sales channels.',
-      },
-      {
-        type: 'list',
-        items: [
-          { bold: 'Event builder: ', text: 'Drag-and-drop seat maps, ticket tier configuration, and promo code management.' },
-          { bold: 'Payment integration: ', text: 'Local payment gateways including GCash, Maya, and major credit cards.' },
-          { bold: 'QR check-in app: ', text: 'Offline-capable mobile scanner with sync queue for venue dead zones.' },
-          { bold: 'Organizer analytics: ', text: 'Live sales dashboard, demographic breakdown, and post-event CSV exports.' },
-        ],
-      },
-      {
-        type: 'heading',
-        text: 'Results',
-      },
-      {
-        type: 'paragraph',
-        text: 'PlanOut processed over 14,000 tickets in its first quarter on the platform. Check-in time per attendee dropped from an average of 45 seconds to under 8 seconds. The operations team reduced event-day headcount by 40% while handling larger crowds.',
-      },
-    ],
+      'PlanOut is a user-friendly app designed to make attending outdoor adventure events simple and stress-free. It provides a reliable place for guests to buy tickets and keep track of their bookings all in one spot. By streamlining the entire process from purchase to check-in, PlanOut ensures that attendees spend less time handling paperwork and more time enjoying the outdoors.',
   },
   {
     id: 'korte',
@@ -99,7 +35,7 @@ export const projects = [
     logo: korteLogo,
     client: 'Korte Philippines',
     tags: ['Marketplace', 'UX / UI'],
-    title: 'Discover & book sports courts nationwide.',
+    title: 'Korte: Play Without the Wait',
     description:
       'Court discovery and booking platform with availability calendars, venue management tools, and a seamless mobile booking flow for basketball, badminton, and tennis facilities across the Philippines.',
     body: [

@@ -12,9 +12,9 @@ export const departments = [
     id: 'project-management',
     name: 'Project Management',
     members: [
-      { name: 'Domingo, Jason Florante', role: 'PM / UX Testing / EPMO' },
-      { name: 'Balaguer, Sheera Nister', role: 'Project Manager / Administrative' },
-      { name: 'Maypa, Lloyd Kenneth',    role: 'Project Manager / Scrum Master' },
+      { name: 'Domingo, Jason Florante', role: 'Project Manager' },
+      { name: 'Balaguer, Sheera Nister', role: 'Project Manager' },
+      { name: 'Maypa, Lloyd Kenneth',    role: 'Project Manager' },
     ],
   },
   {
@@ -79,7 +79,7 @@ export const departments = [
     id: 'admin',
     name: 'Research & Admin Works',
     members: [
-      { name: 'Infante, Fabe Hillary', role: 'Researcher / Admin Works' },
+      { name: 'Infante, Fabe Hillary', role: 'Researcher' },
     ],
   },
 ]

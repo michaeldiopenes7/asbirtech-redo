@@ -182,12 +182,18 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  filter: grayscale(100%);
   transition: opacity 0.25s;
 }
 
 .tp-member-avatar--blank {
   background: #1a1a1a;
+}
+
+.tp-member-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 25%, transparent 45%);
+  pointer-events: none;
 }
 
 .tp-member-info {
@@ -210,9 +216,9 @@
 }
 
 .tp-member-role {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.50);
+  color: rgba(255, 255, 255, 0.60);
   line-height: 1.4;
 }
 
