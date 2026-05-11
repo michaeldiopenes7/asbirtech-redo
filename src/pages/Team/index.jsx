@@ -5,9 +5,14 @@ import Nav from '../../components/layout/Nav'
 import { departments } from '../../content/team'
 import logo from '../../assets/images/asbirtechlogo.png'
 import sirSyarPhoto from '../../assets/images/SirSyar.png'
+import samplePhoto from '../../assets/images/samplephoto.png'
+import samplePhoto2 from '../../assets/images/samplephoto2.png'
+
 
 const memberPhotos = {
   'Asbir, Muhammad Syarief': sirSyarPhoto,
+  'Orozco, Paul Brett': samplePhoto,
+  'Llena, Eduard': samplePhoto2,
 }
 import './TeamPage.css'
 
