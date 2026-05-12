@@ -175,10 +175,7 @@ export default function TeamPage() {
               <div className="tp-members-grid">
                 {dept.members.map(member => (
                   <div key={member.name} className="tp-member-card">
-                    {memberPhotos[member.name]
-                      ? <img className="tp-member-avatar" src={memberPhotos[member.name]} alt="" aria-hidden="true" />
-                      : <div className="tp-member-avatar tp-member-avatar--blank" aria-hidden="true" />
-                    }
+                    
                     <div className="tp-member-overlay" aria-hidden="true" />
                     <div className="tp-member-info">
                       <span className="tp-member-name">{member.name}</span>

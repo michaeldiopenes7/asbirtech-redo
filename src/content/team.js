@@ -5,7 +5,6 @@ export const departments = [
     members: [
       { name: 'Asbir, Muhammad Syarief', role: 'Chief Executive Officer' },
       { name: 'Orozco, Paul Brett',      role: 'Chief Operations Officer' },
-      { name: 'Llena, Eduard',           role: 'Marketing OIC' },
     ],
   },
   {
@@ -18,8 +17,39 @@ export const departments = [
     ],
   },
   {
-    id: 'engineering',
-    name: 'Engineering',
+    id: 'product-design',
+    name: 'Product Design',
+    members: [
+      { name: 'Abines, Ada Katrina',    role: 'Product Design Manager' },
+      { name: 'Jo, Kenanaiah',          role: 'UI/UX Designer' },
+      { name: 'Diopenes, Michael John', role: 'UI/UX Designer' },
+      { name: 'Alumbre, Claire',        role: 'Junior UI/UX Designer' },
+    ],
+  },
+  {
+    id: 'qa',
+    name: 'Quality Assurance',
+    members: [
+      { name: 'Salazar, May Faith',   role: 'Quality Assurance Manager' },
+      { name: 'Beschorner, Patric',   role: 'Quality Assurance Analyst' },
+      { name: 'Mercado, Elmer',       role: 'Quality Assurance Analyst' },
+    ],
+  },
+  {
+    id: 'marketing',
+    name: 'Marketing',
+    members: [
+      { name: 'Albiso, John Rey',      role: 'Content Strategist' },
+      { name: 'Jul, Bennajir',         role: 'Content Writer' },
+      { name: 'Dacua, Jean Luis',      role: 'Marketing Specialist' },
+      { name: 'Dequito, Marjun',       role: 'Graphics Designer' },
+      { name: 'Fernando, Niko Angelo', role: '3D Artist (Animator)' },
+      { name: 'Rio, John',             role: 'Multimedia Designer' },
+    ],
+  },
+  {
+    id: 'software-engineering',
+    name: 'Software Engineering',
     members: [
       { name: 'Talinting, Rigo Rey',      role: 'Staff Engineer' },
       { name: 'Labastilla, Arnold',        role: 'Staff Engineer' },
@@ -45,41 +75,10 @@ export const departments = [
     ],
   },
   {
-    id: 'product-design',
-    name: 'Product Design',
+    id: 'staff',
+    name: 'Staff',
     members: [
-      { name: 'Abines, Ada Katrina',    role: 'Product Design Manager' },
-      { name: 'Jo, Kenanaiah',          role: 'UI/UX Designer' },
-      { name: 'Diopenes, Michael John', role: 'UI/UX Designer' },
-      { name: 'Alumbre, Claire',        role: 'Junior UI/UX Designer' },
-    ],
-  },
-  {
-    id: 'marketing',
-    name: 'Marketing',
-    members: [
-      { name: 'Albiso, John Rey',      role: 'Content Strategist' },
-      { name: 'Jul, Bennajir',         role: 'Content Writer' },
-      { name: 'Dacua, Jean Luis',      role: 'Marketing Specialist' },
-      { name: 'Dequito, Marjun',       role: 'Graphics Designer' },
-      { name: 'Fernando, Niko Angelo', role: '3D Artist (Animator)' },
-      { name: 'Rio, John',             role: 'Multimedia Designer' },
-    ],
-  },
-  {
-    id: 'qa',
-    name: 'Quality Assurance',
-    members: [
-      { name: 'Salazar, May Faith',   role: 'Quality Assurance Manager' },
-      { name: 'Beschorner, Patric',   role: 'Quality Assurance Analyst' },
-      { name: 'Mercado, Elmer',       role: 'Quality Assurance Analyst' },
-    ],
-  },
-  {
-    id: 'admin',
-    name: 'Research & Admin Works',
-    members: [
-      { name: 'Infante, Fabe Hillary', role: 'Researcher' },
+      { name: 'Infante, Fabe Hillary', role: 'Admin Works' },
     ],
   },
 ]
