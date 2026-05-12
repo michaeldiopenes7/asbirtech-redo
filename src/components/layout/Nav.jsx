@@ -33,6 +33,7 @@ export default function Nav() {
         <li><a href="/#about">About Us</a></li>
         <li><a href="/#work">Showcase</a></li>
         <li><a href="/#articles">Articles</a></li>
+        <li><Link to="/team">Team</Link></li>
       </ul>
 
       <div className="nav-cta">
@@ -60,6 +61,7 @@ export default function Nav() {
           <a href="/#about" className="nav-mobile-link" onClick={closeMenu}>About Us</a>
           <a href="/#work" className="nav-mobile-link" onClick={closeMenu}>Showcase</a>
           <a href="/#articles" className="nav-mobile-link" onClick={closeMenu}>Articles</a>
+          <Link to="/team" className="nav-mobile-link" onClick={closeMenu}>Team</Link>
           <div className="nav-mobile-divider" />
           <Link to="/contact" className="nav-mobile-cta" onClick={closeMenu}>Contact Us</Link>
         </div>

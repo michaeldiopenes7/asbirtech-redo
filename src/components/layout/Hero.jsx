@@ -1,7 +1,7 @@
 import Nav from './Nav'
 import HeroContent from './HeroContent'
 import GradientBlinds from '../webgl/GradientBlinds'
-import Partners from './Partners'
+// import Partners from './Partners'
 import './Hero.css'
 
 export default function Hero() {
@@ -12,7 +12,7 @@ export default function Hero() {
       </div>
       <div className="container"><Nav /></div>
       <HeroContent />
-      <Partners />
+      {/* <Partners /> */}
     </div>
   )
 }
