@@ -48,6 +48,14 @@ export const departments = [
     ],
   },
   {
+    id: 'office-staff',
+    name: 'Office Staff',
+    members: [
+      { name: 'Infante, Fabe Hillary', role: 'Admin Works' },
+      { name: 'Angelo, Dapitan', role: 'Staff' },
+    ],
+  },
+  {
     id: 'software-engineering',
     name: 'Software Engineering',
     members: [
@@ -73,12 +81,5 @@ export const departments = [
       { name: 'Palallos, Hamuel',          role: 'Junior Software Engineer' },
       { name: 'Pasulohan, Frances',        role: 'Junior Software Engineer' },
     ],
-  },
-  {
-    id: 'staff',
-    name: 'Staff',
-    members: [
-      { name: 'Infante, Fabe Hillary', role: 'Admin Works' },
-    ],
-  },
+  }
 ]
