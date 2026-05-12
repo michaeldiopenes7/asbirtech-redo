@@ -201,6 +201,35 @@
   );
   background-size: 200% 100%;
   animation: tp-skeleton-shimmer 1.4s ease-in-out infinite;
+  z-index: 2;
+}
+
+.tp-skel-bar {
+  position: absolute;
+  left: 16px;
+  height: 10px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.tp-skel-bar--name {
+  bottom: 40px;
+  width: 62%;
+}
+
+.tp-skel-bar--role {
+  bottom: 22px;
+  width: 44%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.tp-member-card.is-loading .tp-member-info {
+  opacity: 0;
+}
+
+.tp-member-card .tp-member-info {
+  transition: opacity 0.3s ease;
 }
 
 @keyframes tp-skeleton-shimmer {

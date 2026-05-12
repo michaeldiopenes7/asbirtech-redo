@@ -29,11 +29,19 @@ export default function MemberCard({ member, photo }) {
     return () => io.disconnect()
   }, [inView])
 
-  const showSkeleton = !inView || (photo && !imgLoaded)
+  const ready = inView && (!photo || imgLoaded)
 
   return (
-    <div ref={cardRef} className="tp-member-card">
-      {showSkeleton && <div className="tp-member-skeleton" aria-hidden="true" />}
+    <div
+      ref={cardRef}
+      className={`tp-member-card${ready ? ' is-ready' : ' is-loading'}`}
+    >
+      {!ready && (
+        <div className="tp-member-skeleton" aria-hidden="true">
+          <div className="tp-skel-bar tp-skel-bar--name" />
+          <div className="tp-skel-bar tp-skel-bar--role" />
+        </div>
+      )}
 
       {inView && photo && (
         <img
