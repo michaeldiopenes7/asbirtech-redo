@@ -1,6 +1,6 @@
 export const departments = [
   {
-    id: 'leadership',
+    id: 'executives',
     name: 'Executives',
     members: [
       { name: 'Asbir, Muhammad Syarief', role: 'Chief Executive Officer' },
@@ -27,7 +27,7 @@ export const departments = [
     ],
   },
   {
-    id: 'qa',
+    id: 'quality-assurance',
     name: 'Quality Assurance',
     members: [
       { name: 'Salazar, May Faith',   role: 'Quality Assurance Manager' },

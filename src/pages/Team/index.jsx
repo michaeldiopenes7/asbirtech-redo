@@ -1,41 +1,11 @@
 import { useRef, useEffect, useState } from 'react'
+import MemberCard from './MemberCard'
 import { Link } from 'react-router-dom'
 import fireFrag from '../../shaders/showcase-fire.glsl'
 import Nav from '../../components/layout/Nav'
 import { departments } from '../../content/team'
 import logo from '../../assets/images/asbirtechlogo.png'
-import sirSyarPhoto from '../../assets/images/SirSyar.png'
-import samplePhoto from '../../assets/images/samplephoto.png'
-import samplePhoto2 from '../../assets/images/samplephoto2.png'
-import samplePhoto3 from '../../assets/images/samplephoto3.png'
-import samplePhoto4 from '../../assets/images/samplephoto4.png'
-import samplePhoto5 from '../../assets/images/samplephoto5.png'
-import samplePhoto6 from '../../assets/images/samplephoto6.png'
-import samplePhoto7 from '../../assets/images/samplephoto7.png'
-import samplePhoto8 from '../../assets/images/samplephoto8.png'
-import samplePhoto9 from '../../assets/images/samplephoto9.png'
 import './TeamPage.css'
-
-const memberPhotos = {
-  'Asbir, Muhammad Syarief': sirSyarPhoto,
-  'Orozco, Paul Brett': samplePhoto,
-  'Llena, Eduard': samplePhoto2,
-  'Balaguer, Sheera Nister': samplePhoto4,
-}
-
-const extraPhotos = [
-  samplePhoto3, samplePhoto5,
-  samplePhoto6, samplePhoto7, samplePhoto8, samplePhoto9,
-]
-
-const emptyMembers = departments
-  .flatMap(d => d.members)
-  .filter(m => !memberPhotos[m.name])
-  .map(m => m.name)
-
-emptyMembers.slice(0, extraPhotos.length).forEach((name, i) => {
-  memberPhotos[name] = extraPhotos[i]
-})
 
 const VERT = `attribute vec2 a_pos; void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }`
 
@@ -174,14 +144,7 @@ export default function TeamPage() {
               </div>
               <div className="tp-members-grid">
                 {dept.members.map(member => (
-                  <div key={member.name} className="tp-member-card">
-                    
-                    <div className="tp-member-overlay" aria-hidden="true" />
-                    <div className="tp-member-info">
-                      <span className="tp-member-name">{member.name}</span>
-                      <span className="tp-member-role">{member.role}</span>
-                    </div>
-                  </div>
+                  <MemberCard key={member.name} member={member} />
                 ))}
               </div>
             </section>
