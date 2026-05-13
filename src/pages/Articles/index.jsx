@@ -1,9 +1,8 @@
 import { useRef, useEffect } from 'react'
-import { Link } from 'react-router-dom'
-import { LuArrowUpRight } from 'react-icons/lu'
 import fireFrag from '../../shaders/showcase-fire.glsl'
 import Nav from '../../components/layout/Nav'
 import { insights } from '../../content/insights'
+import InsightCard from '../../components/InsightCard'
 import logo from '../../assets/images/asbirtechlogo.png'
 import './ArticlesPage.css'
 
@@ -108,44 +107,9 @@ export default function ArticlesPage() {
           </header>
 
           <div className="ap-grid">
-            {insights.map(post => {
-              const isExternal = !post.body?.length
-              const cardProps = isExternal
-                ? { as: 'a', href: post.href, target: '_blank', rel: 'noopener noreferrer' }
-                : { as: Link, to: `/articles/${post.id}` }
-
-              const El = cardProps.as
-              const props = isExternal
-                ? { href: cardProps.href, target: cardProps.target, rel: cardProps.rel }
-                : { to: cardProps.to }
-
-              return (
-                <El key={post.id} {...props} className="ap-card">
-                  <div className="ap-card-image">
-                    {post.image && <img src={post.image} alt={post.title} loading="lazy" decoding="async" />}
-                  </div>
-                  <div className="ap-card-body">
-                    <div className="ap-card-meta">
-                      <span className="ap-card-category">{post.category}</span>
-                      <span className="ap-card-date">{post.date}</span>
-                    </div>
-                    <h3 className="ap-card-title">{post.title}</h3>
-                    <div className="ap-card-footer">
-                      <div className="ap-card-author">
-                        <div className="ap-card-author-avatar">
-                          {post.author.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
-                        </div>
-                        <div className="ap-card-author-info">
-                          <span className="ap-card-author-name">{post.author.name}</span>
-                          <span className="ap-card-author-role">{post.author.role}</span>
-                        </div>
-                      </div>
-                      <LuArrowUpRight className="ap-card-arrow" aria-hidden="true" />
-                    </div>
-                  </div>
-                </El>
-              )
-            })}
+            {insights.map(post => (
+              <InsightCard key={post.id} post={post} showMeta showArrow />
+            ))}
           </div>
 
         </div>

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../../assets/images/asbirtechlogo.png'
 import './Nav.css'
 
@@ -7,6 +7,7 @@ export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [isClosing, setIsClosing] = useState(false)
   const { pathname } = useLocation()
+  const navigate = useNavigate()
   const isContact = pathname === '/contact'
 
   const openMenu = () => setMenuOpen(true)
@@ -21,6 +22,17 @@ export default function Nav() {
 
   const toggleMenu = () => (menuOpen ? closeMenu() : openMenu())
 
+  const handleHashLink = (hash) => (e) => {
+    e.preventDefault()
+    if (menuOpen) closeMenu()
+    if (pathname === '/') {
+      const el = document.querySelector(hash)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    } else {
+      navigate('/' + hash)
+    }
+  }
+
   return (
     <nav className="hero-nav">
       <Link to="/" className="nav-logo">
@@ -29,10 +41,10 @@ export default function Nav() {
 
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
-        <li><a href="/#services">Services</a></li>
-        <li><a href="/#about">About Us</a></li>
-        <li><a href="/#work">Showcase</a></li>
-        <li><a href="/#articles">Articles</a></li>
+        <li><a href="/#services" onClick={handleHashLink('#services')}>Services</a></li>
+        <li><a href="/#about" onClick={handleHashLink('#about')}>About Us</a></li>
+        <li><a href="/#work" onClick={handleHashLink('#work')}>Showcase</a></li>
+        <li><a href="/#articles" onClick={handleHashLink('#articles')}>Articles</a></li>
         <li><Link to="/team">Team</Link></li>
       </ul>
 
@@ -57,10 +69,10 @@ export default function Nav() {
       {menuOpen && (
         <div className={`nav-mobile-menu ${isClosing ? 'closing' : ''}`}>
           <Link to="/" className="nav-mobile-link" onClick={closeMenu}>Home</Link>
-          <a href="/#services" className="nav-mobile-link" onClick={closeMenu}>Services</a>
-          <a href="/#about" className="nav-mobile-link" onClick={closeMenu}>About Us</a>
-          <a href="/#work" className="nav-mobile-link" onClick={closeMenu}>Showcase</a>
-          <a href="/#articles" className="nav-mobile-link" onClick={closeMenu}>Articles</a>
+          <a href="/#services" className="nav-mobile-link" onClick={handleHashLink('#services')}>Services</a>
+          <a href="/#about" className="nav-mobile-link" onClick={handleHashLink('#about')}>About Us</a>
+          <a href="/#work" className="nav-mobile-link" onClick={handleHashLink('#work')}>Showcase</a>
+          <a href="/#articles" className="nav-mobile-link" onClick={handleHashLink('#articles')}>Articles</a>
           <Link to="/team" className="nav-mobile-link" onClick={closeMenu}>Team</Link>
           <div className="nav-mobile-divider" />
           <Link to="/contact" className="nav-mobile-cta" onClick={closeMenu}>Contact Us</Link>

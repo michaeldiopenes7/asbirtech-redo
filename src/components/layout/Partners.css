@@ -41,6 +41,20 @@
   flex-shrink: 0;
 }
 
+.partners-logo-wrap {
+  position: relative;
+  height: 28px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+}
+
+.partners-logo-skel {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+}
+
 .partners-logo {
   height: 28px;
   width: auto;
@@ -68,6 +82,10 @@
     margin: 0 24px;
   }
 
+  .partners-logo-wrap {
+    height: 22px;
+  }
+
   .partners-logo {
     height: 22px;
   }
@@ -85,6 +103,10 @@
 
   .partners-divider {
     display: none;
+  }
+
+  .partners-logo-wrap {
+    height: 18px;
   }
 
   .partners-logo {

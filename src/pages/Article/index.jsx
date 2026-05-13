@@ -1,10 +1,55 @@
-import { useEffect } from 'react'
+/* global IntersectionObserver */
+import { useEffect, useRef, useState } from 'react'
 import { useParams, Link, Navigate, useLocation } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'
 import { insights } from '../../content/insights'
 import Nav from '../../components/layout/Nav'
 import logo from '../../assets/images/asbirtechlogo.png'
 import './ArticlePage.css'
+
+function RelatedCard({ p }) {
+  const ref = useRef(null)
+  const [inView, setInView] = useState(false)
+  const [imgLoaded, setImgLoaded] = useState(false)
+
+  useEffect(() => {
+    const el = ref.current
+    if (!el || inView) return
+    if (typeof IntersectionObserver === 'undefined') { setInView(true); return }
+    const io = new IntersectionObserver(
+      entries => { entries.forEach(e => { if (e.isIntersecting) { setInView(true); io.disconnect() } }) },
+      { rootMargin: '200px 0px' }
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [inView])
+
+  const imgReady = !p.image || imgLoaded
+  const inner = (
+    <>
+      <div className="article-related-card-image" ref={ref}>
+        {!imgReady && <div className="skel" style={{ position: 'absolute', inset: 0 }} aria-hidden="true" />}
+        {inView && p.image && (
+          <img
+            src={p.image}
+            alt={p.title}
+            loading="lazy"
+            decoding="async"
+            style={{ opacity: imgLoaded ? 1 : 0, transition: 'opacity 0.35s ease' }}
+            onLoad={() => setImgLoaded(true)}
+            onError={() => setImgLoaded(true)}
+          />
+        )}
+      </div>
+      <span className="article-related-card-category">{p.category}</span>
+      <h3 className="article-related-card-title">{p.title}</h3>
+    </>
+  )
+
+  return p.body?.length
+    ? <Link to={`/articles/${p.id}`} className="article-related-card">{inner}</Link>
+    : <a href={p.href} target="_blank" rel="noopener noreferrer" className="article-related-card">{inner}</a>
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -128,23 +173,7 @@ export default function ArticlePage() {
               </Link>
             </div>
             <div className="article-related-grid">
-              {related.map(p => (
-                p.body?.length
-                  ? <Link key={p.id} to={`/articles/${p.id}`} className="article-related-card">
-                      <div className="article-related-card-image">
-                        {p.image && <img src={p.image} alt={p.title} loading="lazy" decoding="async" />}
-                      </div>
-                      <span className="article-related-card-category">{p.category}</span>
-                      <h3 className="article-related-card-title">{p.title}</h3>
-                    </Link>
-                  : <a key={p.id} href={p.href} target="_blank" rel="noopener noreferrer" className="article-related-card">
-                      <div className="article-related-card-image">
-                        {p.image && <img src={p.image} alt={p.title} loading="lazy" decoding="async" />}
-                      </div>
-                      <span className="article-related-card-category">{p.category}</span>
-                      <h3 className="article-related-card-title">{p.title}</h3>
-                    </a>
-              ))}
+              {related.map(p => <RelatedCard key={p.id} p={p} />)}
             </div>
           </div>
         )}

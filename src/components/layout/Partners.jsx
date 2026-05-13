@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import bzpLogo from '../../assets/images/bzp.png'
 import korteLogo from '../../assets/images/korte.png'
 import planoutLogo from '../../assets/images/planout.png'
@@ -12,6 +13,26 @@ const LOGO_MAP = {
   tripket: tripketLogo,
 }
 
+function PartnerLogo({ brand }) {
+  const [loaded, setLoaded] = useState(false)
+  return (
+    <div className="partners-logo-wrap">
+      {!loaded && <div className="partners-logo-skel skel" aria-hidden="true" />}
+      <img
+        src={LOGO_MAP[brand.id]}
+        alt={brand.name}
+        className="partners-logo"
+        draggable="false"
+        loading="lazy"
+        decoding="async"
+        style={{ opacity: loaded ? 1 : 0, transition: 'opacity 0.3s ease' }}
+        onLoad={() => setLoaded(true)}
+        onError={() => setLoaded(true)}
+      />
+    </div>
+  )
+}
+
 export default function Partners() {
   return (
     <div className="partners-section" aria-label="Trusted partners">
@@ -21,14 +42,7 @@ export default function Partners() {
           <>
             {i > 0 && <span key={`div-${brand.id}`} className="partners-divider" aria-hidden="true" />}
             <div key={brand.id} className="partners-item" role="listitem">
-              <img
-                src={LOGO_MAP[brand.id]}
-                alt={brand.name}
-                className="partners-logo"
-                draggable="false"
-                loading="lazy"
-                decoding="async"
-              />
+              <PartnerLogo brand={brand} />
             </div>
           </>
         ))}
