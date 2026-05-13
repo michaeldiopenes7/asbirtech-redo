@@ -145,7 +145,7 @@ function LeafletMap() {
 
       const icon = L.divIcon({
         className: '',
-        html: `<div class="cp-marker"><div class="cp-marker-ring"></div><div class="cp-marker-dot"></div></div>`,
+        html: `<div class="cp-marker"><div class="cp-marker-label">We're here</div><div class="cp-marker-ring"></div><div class="cp-marker-dot"></div></div>`,
         iconSize: [18, 18],
         iconAnchor: [9, 9],
       })
