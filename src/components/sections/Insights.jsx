@@ -26,7 +26,7 @@ export default function Insights() {
               return (
                 <a key={post.id} href={post.href} target="_blank" rel="noopener noreferrer" className="insight-card" data-reveal data-reveal-delay={i * 100}>
                   <div className="insight-card-image">
-                    {post.image && <img src={post.image} alt={post.title} />}
+                    {post.image && <img src={post.image} alt={post.title} loading="lazy" decoding="async" />}
                   </div>
                   <div className="insight-card-body">
                     <span className="insight-card-category">{post.category}</span>
@@ -47,7 +47,7 @@ export default function Insights() {
             return (
               <Link key={post.id} to={`/articles/${post.id}`} className="insight-card" data-reveal data-reveal-delay={i * 100}>
                 <div className="insight-card-image">
-                  {post.image && <img src={post.image} alt={post.title} />}
+                  {post.image && <img src={post.image} alt={post.title} loading="lazy" decoding="async" />}
                 </div>
                 <div className="insight-card-body">
                   <span className="insight-card-category">{post.category}</span>

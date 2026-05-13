@@ -24,7 +24,7 @@ export default function About() {
           <div className="about-visual-top-fade" />
           <div className="about-visual-glow" />
           <div className="about-visual-photo">
-            <img src={testImage} alt="Team at work" className="about-visual-img" />
+            <img src={testImage} alt="Team at work" className="about-visual-img" loading="lazy" decoding="async" />
           </div>
         </div>
 

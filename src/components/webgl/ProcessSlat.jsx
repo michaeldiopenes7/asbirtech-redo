@@ -103,6 +103,8 @@ export default function ProcessSlat({ variant = 'fire', image }) {
           src={image}
           alt=""
           className="process-slat-image"
+          loading="lazy"
+          decoding="async"
         />
       )}
     </div>

@@ -3,12 +3,12 @@
 }
 
 .about-inner {
-  max-width: 1250px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 90px;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 72px;
   align-items: stretch;
 }
 
@@ -18,7 +18,7 @@
   overflow: hidden;
   background: #0e0e0e;
   align-self: stretch;
-  min-height: 480px;
+  min-height: 550px;
 }
 
 .about-visual-canvas {

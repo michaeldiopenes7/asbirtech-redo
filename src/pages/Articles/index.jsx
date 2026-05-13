@@ -122,7 +122,7 @@ export default function ArticlesPage() {
               return (
                 <El key={post.id} {...props} className="ap-card">
                   <div className="ap-card-image">
-                    {post.image && <img src={post.image} alt={post.title} />}
+                    {post.image && <img src={post.image} alt={post.title} loading="lazy" decoding="async" />}
                   </div>
                   <div className="ap-card-body">
                     <div className="ap-card-meta">

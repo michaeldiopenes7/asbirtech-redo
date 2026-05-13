@@ -104,16 +104,34 @@ function WebGLThumb({ variant }) {
   )
 }
 
-export default function ShowcaseCard({ variant = 'fire', client, title, index, id }) {
+export default function ShowcaseCard({ variant = 'fire', client, title, index, id, image }) {
   return (
     <Link to={`/projects/${id}`} className="sc-card" aria-label={`View ${client} case study`}>
       <WebGLThumb variant={variant} />
-      <div className="sc-overlay">
-        <div className="sc-overlay-top">
+
+      <div className="sc-stage">
+        <div className="sc-stage-top">
           <span className="sc-index">{String(index).padStart(2, '0')}</span>
           <span className="sc-arrow"><LuArrowUpRight /></span>
         </div>
-        <div className="sc-text">
+
+        <div className="sc-frame" aria-hidden="true">
+          {image ? (
+            <img
+              src={image}
+              alt=""
+              className="sc-frame-img"
+              loading="lazy"
+              decoding="async"
+            />
+          ) : (
+            <div className="sc-frame-placeholder" />
+          )}
+        </div>
+      </div>
+
+      <div className="sc-footer">
+        <div className="sc-footer-text">
           <p className="sc-client">{client}</p>
           <h3 className="sc-title">{title}</h3>
         </div>

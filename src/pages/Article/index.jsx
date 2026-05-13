@@ -40,7 +40,7 @@ function renderBlock(block, i) {
     case 'image':
       return (
         <figure key={i} className="article-figure">
-          <img src={block.src} alt={block.alt || ''} className="article-figure-img" />
+          <img src={block.src} alt={block.alt || ''} className="article-figure-img" loading="lazy" decoding="async" />
           {block.caption && <figcaption className="article-figure-caption">{block.caption}</figcaption>}
         </figure>
       )
@@ -132,14 +132,14 @@ export default function ArticlePage() {
                 p.body?.length
                   ? <Link key={p.id} to={`/articles/${p.id}`} className="article-related-card">
                       <div className="article-related-card-image">
-                        {p.image && <img src={p.image} alt={p.title} />}
+                        {p.image && <img src={p.image} alt={p.title} loading="lazy" decoding="async" />}
                       </div>
                       <span className="article-related-card-category">{p.category}</span>
                       <h3 className="article-related-card-title">{p.title}</h3>
                     </Link>
                   : <a key={p.id} href={p.href} target="_blank" rel="noopener noreferrer" className="article-related-card">
                       <div className="article-related-card-image">
-                        {p.image && <img src={p.image} alt={p.title} />}
+                        {p.image && <img src={p.image} alt={p.title} loading="lazy" decoding="async" />}
                       </div>
                       <span className="article-related-card-category">{p.category}</span>
                       <h3 className="article-related-card-title">{p.title}</h3>

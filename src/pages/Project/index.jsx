@@ -182,7 +182,7 @@ export default function ProjectPage() {
             if (block.type === 'image')
               return (
                 <figure key={i} className="pp-figure">
-                  <img src={block.src} alt={block.alt || ''} className="pp-figure-img" />
+                  <img src={block.src} alt={block.alt || ''} className="pp-figure-img" loading="lazy" decoding="async" />
                   {block.caption && <figcaption className="pp-figure-caption">{block.caption}</figcaption>}
                 </figure>
               )

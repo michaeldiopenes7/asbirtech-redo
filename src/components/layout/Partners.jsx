@@ -26,6 +26,8 @@ export default function Partners() {
                 alt={brand.name}
                 className="partners-logo"
                 draggable="false"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </>
