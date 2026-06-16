@@ -144,7 +144,7 @@ export default function TeamPage() {
               </div>
               <div className="tp-members-grid">
                 {dept.members.map(member => (
-                  <MemberCard key={member.name} member={member} />
+                  <MemberCard key={member.name} member={member} photo={member.photo} />
                 ))}
               </div>
             </section>

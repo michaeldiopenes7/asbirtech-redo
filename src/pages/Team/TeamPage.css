@@ -182,6 +182,8 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
+  transform: scale(1.28);
+  transform-origin: center 22%;
   opacity: 0;
   transition: opacity 0.35s ease;
 }
@@ -249,7 +251,13 @@
 .tp-member-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 25%, transparent 45%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95) 0%,
+    rgba(0, 0, 0, 0.8) 18%,
+    rgba(0, 0, 0, 0.45) 38%,
+    transparent 60%
+  );
   pointer-events: none;
 }
 
