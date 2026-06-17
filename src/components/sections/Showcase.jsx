@@ -19,7 +19,7 @@ export default function Showcase() {
     <section id="work" className="showcase" aria-labelledby="showcase-heading">
       <div className="container">
 
-        <div className="showcase-top" data-reveal>
+        <div className="showcase-top" data-anim="fade-up">
           <div className="showcase-header">
             <h2 id="showcase-heading" className="showcase-headline">Our work</h2>
           </div>
@@ -33,7 +33,7 @@ export default function Showcase() {
           </div>
         </div>
 
-        <div className="showcase-track" ref={trackRef} data-reveal data-reveal-delay="100">
+        <div className="showcase-track" ref={trackRef} data-anim="fade-up" data-anim-delay="0.1">
           {projects.map((p, i) => (
             <ShowcaseCard
               key={p.id}

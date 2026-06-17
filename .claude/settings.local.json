@@ -6,7 +6,13 @@
       "Bash(npm install *)",
       "WebSearch",
       "WebFetch(domain:unsplash.com)",
-      "WebFetch(domain:images.unsplash.com)"
+      "WebFetch(domain:images.unsplash.com)",
+      "Bash(npx eslint *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5174/)",
+      "Bash(lsof -iTCP -sTCP:LISTEN -P -n)",
+      "Bash(curl -s http://localhost:5175/)",
+      "Bash(curl -s \"http://localhost:5175/src/hooks/useGsapReveal.js\")"
     ]
   }
 }

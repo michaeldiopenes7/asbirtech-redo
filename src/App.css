@@ -19,25 +19,10 @@
   outline-offset: 2px;
 }
 
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-              transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-[data-reveal="left"] {
-  transform: translateX(-28px);
-}
-
-[data-reveal="right"] {
-  transform: translateX(28px);
-}
-
-[data-reveal].is-revealed {
-  opacity: 1;
-  transform: translate(0);
-}
+/* Entrance animations are driven by GSAP + ScrollTrigger via data-anim
+   attributes (see src/hooks/useGsapReveal.js). The hook sets each element's
+   initial hidden state in JS, so without JS everything renders in its final
+   state — no flash of hidden content. */
 
 .site-footer {
   background: #000;

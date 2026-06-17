@@ -6,11 +6,11 @@ import Showcase from './components/sections/Showcase'
 import Process from './components/sections/Process'
 import Insights from './components/sections/Insights'
 import Contact from './components/sections/Contact'
-import useScrollReveal from './hooks/useScrollReveal'
+import useGsapReveal from './hooks/useGsapReveal'
 import './App.css'
 
 export default function App() {
-  useScrollReveal()
+  useGsapReveal()
   return (
     <>
       <a href="#main-content" className="skip-link">Skip to main content</a>

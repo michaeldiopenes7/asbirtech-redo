@@ -101,10 +101,10 @@ export default function Contact() {
   return (
     <section id="contact" className="contact" aria-labelledby="contact-heading">
       <div className="container">
-        <div className="contact-card">
+        <div className="contact-card" data-anim="scale">
           <ContactSlat />
           <div className="contact-overlay" />
-          <div className="contact-content" data-reveal>
+          <div className="contact-content">
             <h2 id="contact-heading" className="contact-headline">
               Talk to us today
             </h2>

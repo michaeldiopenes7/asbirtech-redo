@@ -8,12 +8,22 @@
   --orange:       #f97316;
   --orange-light: #fb923c;
   --orange-dim:   rgba(249, 115, 22, 0.15);
+  --logo-orange:  #ff6900;
+  --slat-red:     #d13400;
   --white:        #ffffff;
   --off-white:    rgba(255, 255, 255, 0.85);
   --muted:        rgba(255, 255, 255, 0.45);
   --border:       rgba(255, 255, 255, 0.08);
 
   --font: 'DM Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+  /* Black frosted glass — shared recipe for nav, pills, cards, buttons, menus.
+     saturate keeps the colorful backdrop vivid through the dark glass. */
+  --glass-bg:       rgba(10, 10, 10, 0.55);
+  --glass-bg-strong: rgba(10, 10, 10, 0.82);
+  --glass-blur:     blur(16px) saturate(140%);
+  --glass-border:   rgba(255, 255, 255, 0.10);
+  --glass-sheen:    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
   --skel-base:    rgba(255, 255, 255, 0.04);
   --skel-peak:    rgba(255, 255, 255, 0.09);
@@ -59,6 +69,8 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scrollbar-gutter: stable;
+  /* Guard against horizontal scrollbar flashes from slide-in entrance animations */
+  overflow-x: clip;
 }
 
 button, input, select, textarea {
@@ -72,10 +84,29 @@ button, input, select, textarea {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
   padding: 0 48px;
   box-sizing: border-box;
+}
+
+/* ── Black frosted glass utilities ──
+   .glass        — translucent dark glass (overlays on top of content/backdrop)
+   .glass-strong — more opaque, for panels that must stay readable (menus, bars) */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-sheen);
+}
+
+.glass-strong {
+  background: var(--glass-bg-strong);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-sheen);
 }
 
 @media (max-width: 1024px) {

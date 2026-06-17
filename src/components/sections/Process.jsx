@@ -30,7 +30,7 @@ export default function Process() {
     <section id="process" className="process" aria-labelledby="process-heading">
       <div className="container">
 
-        <div className="process-header" data-reveal>
+        <div className="process-header" data-anim="fade-up">
           <h2 id="process-heading" className="process-headline">
             How we work
           </h2>
@@ -55,27 +55,26 @@ export default function Process() {
           </div>
 
           <div className="process-steps">
-            {steps.map((step, i) => (
-              <div
-                key={step.id}
-                className={`process-step ${i % 2 === 0 ? 'is-flipped' : ''}`}
-                ref={el => {
-                  if (!el) return
-                  const io = new IntersectionObserver(([entry]) => {
-                    if (entry.isIntersecting) { el.classList.add('is-visible'); io.disconnect() }
-                  }, { threshold: 0.15 })
-                  io.observe(el)
-                }}
-              >
-                <div className="process-visual">
-                  <ProcessSlat variant={step.variant} image={step.image} />
+            {steps.map((step, i) => {
+              const flipped = i % 2 === 0
+              // Slide each half in from the side it actually sits on
+              const visualAnim = flipped ? 'right' : 'left'
+              const contentAnim = flipped ? 'left' : 'right'
+              return (
+                <div
+                  key={step.id}
+                  className={`process-step ${flipped ? 'is-flipped' : ''}`}
+                >
+                  <div className="process-visual" data-anim={visualAnim}>
+                    <ProcessSlat variant={step.variant} image={step.image} />
+                  </div>
+                  <div className="process-content" data-anim={contentAnim} data-anim-delay="0.1">
+                    <h3 className="process-step-title">{step.title}</h3>
+                    <p className="process-step-desc">{step.description}</p>
+                  </div>
                 </div>
-                <div className="process-content">
-                  <h3 className="process-step-title">{step.title}</h3>
-                  <p className="process-step-desc">{step.description}</p>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
 

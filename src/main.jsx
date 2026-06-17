@@ -20,6 +20,9 @@ function ScrollToTop() {
       requestAnimationFrame(() => {
         const el = document.getElementById(id)
         if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        // Strip the hash from the URL so a refresh lands at the top of the page
+        // (not back on the section) — replaceState avoids a new history entry.
+        window.history.replaceState(null, '', pathname + window.location.search)
       })
       return
     }

@@ -9,7 +9,7 @@ export default function Insights() {
     <section id="articles" className="insights" aria-labelledby="insights-heading">
       <div className="container">
 
-        <div className="insights-top" data-reveal>
+        <div className="insights-top" data-anim="fade-up">
           <div className="insights-header">
             <h2 id="insights-heading" className="insights-headline">
               Latest articles &amp;<br />industry insights
@@ -20,15 +20,15 @@ export default function Insights() {
           </Link>
         </div>
 
-        <div className="insights-grid">
-          {insights.slice(0, 3).map((post, i) => (
-            <div key={post.id} data-reveal data-reveal-delay={i * 100}>
+        <div className="insights-grid" data-anim="stagger-up" data-anim-stagger="0.1">
+          {insights.slice(0, 3).map((post) => (
+            <div key={post.id}>
               <InsightCard post={post} />
             </div>
           ))}
         </div>
 
-        <div className="insights-footer" data-reveal>
+        <div className="insights-footer" data-anim="fade-up">
           <Link to="/articles" className="insights-view-all insights-view-all--mobile">
             View more Articles <LuArrowUpRight aria-hidden="true" />
           </Link>

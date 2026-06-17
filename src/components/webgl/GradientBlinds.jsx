@@ -76,8 +76,19 @@ void main() {
   vec2 uv = gl_FragCoord.xy / u_res;
   float aspect = u_res.x / u_res.y;
 
-  float lightR = lightFalloff(uv, vec2(1.0, 1.0), aspect, 1.85, 0.28);
-  float lightL = lightFalloff(uv, vec2(0.0, 0.0), aspect, 1.20, 0.28);
+  // On narrow/portrait viewports push the two glows further apart vertically.
+  float portrait = 1.0 - smoothstep(0.7, 1.2, aspect); // 1 = tall/mobile, 0 = wide/desktop
+
+  // Upper-right glow — fade it out in the lower portion so it stays up top
+  // and leaves a dark gap above the bottom-left patch (raised on mobile).
+  float lightR = lightFalloff(uv, vec2(1.05, 1.0), aspect, 2.05, 0.30);
+  float rLow = mix(0.30, 0.55, portrait);  // higher cutoff on mobile = glow stays higher
+  lightR *= smoothstep(rLow, rLow + 0.48, uv.y);
+  // Small secondary glow in the bottom-left (contained patch, like the reference).
+  // Pull it lower and shrink it a touch on mobile to widen the gap.
+  float lY = mix(-0.04, -0.18, portrait);
+  float lRad = mix(1.05, 0.92, portrait);
+  float lightL = lightFalloff(uv, vec2(0.06, lY), aspect, lRad, 0.36);
   float lightAmt = max(lightR, lightL);
 
   float slatT   = fract(uv.x * u_blinds);
@@ -119,8 +130,12 @@ void main() {
 
   vec3 col = ramp(clamp(brightness, 0.0, 1.0));
 
-  float centerDark = exp(-pow((uv.x - 0.5) * 2.2, 2.0) * 1.8);
-  col *= (1.0 - centerDark * 0.72);
+  // Keep the upper-left dark so the headline reads; ease off toward the bottom
+  // so the small bottom-left slat glow can show through.
+  float leftDark = smoothstep(0.80, 0.10, uv.x);
+  float keepBottom = smoothstep(0.55, 0.0, uv.y); // 1 at bottom, 0 mid-up
+  leftDark *= (1.0 - keepBottom);
+  col *= (1.0 - leftDark * 0.82);
 
   float vigY = uv.y * (1.0 - uv.y) * 4.0;
   col *= pow(clamp(vigY, 0.0, 1.0), 0.25);

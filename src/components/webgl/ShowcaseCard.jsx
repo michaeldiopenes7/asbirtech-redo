@@ -112,7 +112,6 @@ export default function ShowcaseCard({ variant = 'fire', client, title, index, i
       <div className="sc-stage">
         <div className="sc-stage-top">
           <span className="sc-index">{String(index).padStart(2, '0')}</span>
-          <span className="sc-arrow"><LuArrowUpRight /></span>
         </div>
 
         <div className="sc-frame" aria-hidden="true">
@@ -135,6 +134,10 @@ export default function ShowcaseCard({ variant = 'fire', client, title, index, i
           <p className="sc-client">{client}</p>
           <h3 className="sc-title">{title}</h3>
         </div>
+        <span className="sc-cta">
+          <span className="sc-cta-label">View case study</span>
+          <span className="sc-arrow"><LuArrowUpRight /></span>
+        </span>
       </div>
     </Link>
   )

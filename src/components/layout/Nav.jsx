@@ -39,25 +39,26 @@ export default function Nav() {
         <img src={logo} alt="Asbir Tech" className="nav-logo-image" />
       </Link>
 
-      <ul className="nav-links">
-        <li><Link to="/">Home</Link></li>
-        <li><a href="/#services" onClick={handleHashLink('#services')}>Services</a></li>
-        <li><a href="/#about" onClick={handleHashLink('#about')}>About Us</a></li>
-        <li><a href="/#work" onClick={handleHashLink('#work')}>Showcase</a></li>
-        <li><a href="/#articles" onClick={handleHashLink('#articles')}>Articles</a></li>
-        <li><Link to="/team">Team</Link></li>
-      </ul>
+      <div className="nav-right">
+        <ul className="nav-links">
+          <li><Link to="/">Home</Link></li>
+          <li><a href="/#services" onClick={handleHashLink('#services')}>Services</a></li>
+          <li><a href="/#about" onClick={handleHashLink('#about')}>About Us</a></li>
+          <li><a href="/#work" onClick={handleHashLink('#work')}>Showcase</a></li>
+          <li><a href="/#articles" onClick={handleHashLink('#articles')}>Articles</a></li>
+          <li><Link to="/team">Team</Link></li>
+        </ul>
 
-      <div className="nav-cta">
-        {!isContact && (
-          <Link to="/contact" className="btn-contact">Contact Us</Link>
-        )}
-        <button
-          className="nav-menu-btn"
-          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={menuOpen}
-          onClick={toggleMenu}
-        >
+        <div className="nav-cta">
+          {!isContact && (
+            <Link to="/contact" className="btn-contact">Contact Us</Link>
+          )}
+          <button
+            className="nav-menu-btn"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            onClick={toggleMenu}
+          >
           <span className={`nav-menu-icon ${menuOpen ? 'is-open' : ''}`}>
             <span />
             <span />
@@ -66,18 +67,19 @@ export default function Nav() {
         </button>
       </div>
 
-      {menuOpen && (
-        <div className={`nav-mobile-menu ${isClosing ? 'closing' : ''}`}>
-          <Link to="/" className="nav-mobile-link" onClick={closeMenu}>Home</Link>
-          <a href="/#services" className="nav-mobile-link" onClick={handleHashLink('#services')}>Services</a>
-          <a href="/#about" className="nav-mobile-link" onClick={handleHashLink('#about')}>About Us</a>
-          <a href="/#work" className="nav-mobile-link" onClick={handleHashLink('#work')}>Showcase</a>
-          <a href="/#articles" className="nav-mobile-link" onClick={handleHashLink('#articles')}>Articles</a>
-          <Link to="/team" className="nav-mobile-link" onClick={closeMenu}>Team</Link>
-          <div className="nav-mobile-divider" />
-          <Link to="/contact" className="nav-mobile-cta" onClick={closeMenu}>Contact Us</Link>
-        </div>
-      )}
+        {menuOpen && (
+          <div className={`nav-mobile-menu ${isClosing ? 'closing' : ''}`}>
+            <Link to="/" className="nav-mobile-link" onClick={closeMenu}>Home</Link>
+            <a href="/#services" className="nav-mobile-link" onClick={handleHashLink('#services')}>Services</a>
+            <a href="/#about" className="nav-mobile-link" onClick={handleHashLink('#about')}>About Us</a>
+            <a href="/#work" className="nav-mobile-link" onClick={handleHashLink('#work')}>Showcase</a>
+            <a href="/#articles" className="nav-mobile-link" onClick={handleHashLink('#articles')}>Articles</a>
+            <Link to="/team" className="nav-mobile-link" onClick={closeMenu}>Team</Link>
+            <div className="nav-mobile-divider" />
+            <Link to="/contact" className="nav-mobile-cta" onClick={closeMenu}>Contact Us</Link>
+          </div>
+        )}
+      </div>
     </nav>
   )
 }
