@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { LuArrowUpRight } from 'react-icons/lu'
 import GradientBlinds from '../webgl/GradientBlinds'
 import teamPhoto from '../../assets/images/asbirtech-team.jpg'
 import './About.css'
@@ -41,7 +42,7 @@ export default function About() {
           <div className="about-cta">
             <Link to="/team" className="about-btn about-btn--primary">
               Meet the Team
-              <span className="about-btn-arrow" aria-hidden="true">↗</span>
+              <span className="about-btn-arrow" aria-hidden="true"><LuArrowUpRight /></span>
             </Link>
           </div>
         </div>
