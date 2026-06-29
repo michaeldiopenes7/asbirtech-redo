@@ -113,7 +113,7 @@ export default function Contact() {
               Our team delivers strategic support in building and managing your cloud
               and web infrastructure, driving operational excellence and reliability.
             </p>
-            <a href="mailto:hello@asbir.tech" className="contact-btn">
+            <a href="/contact" className="contact-btn">
               Get in touch <LuArrowUpRight aria-hidden="true" />
             </a>
             <div className="contact-meta">
