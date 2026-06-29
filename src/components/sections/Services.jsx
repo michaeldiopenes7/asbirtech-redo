@@ -31,7 +31,7 @@ export default function Services() {
         </div>
 
         <div className="services-cta" data-anim="fade-up">
-          <Link to="/book-a-call" className="services-btn services-btn--primary">
+          <Link to="/contact" className="services-btn services-btn--primary">
             Book a call <span className="services-btn-arrow" aria-hidden="true"><LuArrowUpRight /></span>
           </Link>
         </div>

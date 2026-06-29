@@ -27,7 +27,16 @@ export default [
         requestAnimationFrame: 'readonly',
         cancelAnimationFrame: 'readonly',
         ResizeObserver: 'readonly',
+        IntersectionObserver: 'readonly',
         Image: 'readonly',
+        navigator: 'readonly',
+        performance: 'readonly',
+        localStorage: 'readonly',
+        sessionStorage: 'readonly',
+        fetch: 'readonly',
+        setInterval: 'readonly',
+        clearInterval: 'readonly',
+        matchMedia: 'readonly',
       },
     },
     settings: {
@@ -38,7 +47,10 @@ export default [
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.configs.recommended.rules,
       'react/react-in-jsx-scope': 'off',
-      'react/prop-types': 'warn',
+      'react/no-unescaped-entities': 'off',
+      // No PropTypes in this JS-only codebase; components are internal. Off to
+      // avoid boilerplate without type-safety benefit (use TS migration instead).
+      'react/prop-types': 'off',
       'no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
       'no-console': ['warn', { allow: ['warn', 'error'] }],
     },

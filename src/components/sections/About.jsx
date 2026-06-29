@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import GradientBlinds from '../webgl/GradientBlinds'
 import teamPhoto from '../../assets/images/asbirtech-team.jpg'
 import './About.css'
@@ -25,6 +26,12 @@ export default function About() {
           <p className="about-desc">
             We're a web development and IT consulting team based in the Philippines, working with businesses across Southeast Asia and Australia. We embed with your team, move fast, and build things built to last.
           </p>
+          <div className="about-cta">
+            <Link to="/team" className="about-btn about-btn--primary">
+              Meet the Team
+              <span className="about-btn-arrow" aria-hidden="true">↗</span>
+            </Link>
+          </div>
         </div>
       </div>
     </section>

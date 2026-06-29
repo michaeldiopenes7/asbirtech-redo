@@ -1,4 +1,3 @@
-/* global IntersectionObserver */
 import { useEffect, useRef, useState } from 'react'
 import { useParams, Link, Navigate, useLocation } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'

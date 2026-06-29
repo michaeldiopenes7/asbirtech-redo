@@ -141,6 +141,16 @@
   border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
+.pp-cover-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .pp-visual-canvas {
   position: absolute;
   inset: 0;
@@ -270,54 +280,9 @@
   gap: 20px;
 }
 
-.pp-related-card {
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.pp-related-visual {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  background: #0d0d0d;
-}
-
-.pp-related-overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 4px;
-  padding: 20px 20px 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.20) 50%, transparent 100%);
-}
-
-.pp-related-client {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.45);
-}
-
-.pp-related-title {
-  font-size: 17px;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  color: #fff;
-  margin: 0;
-  line-height: 1.3;
-  transition: color 0.15s;
-}
-
-.pp-related-card:hover .pp-related-title {
-  color: rgba(255, 255, 255, 0.75);
+/* "More Projects" reuses the landing ShowcaseCard (.sc-card) at grid size */
+.pp-related-grid .sc-card {
+  aspect-ratio: 16 / 10;
 }
 
 /* ── Responsive ── */

@@ -7,7 +7,7 @@ export const steps = [
       'We start by learning your business — your goals, your users, and your constraints. From that foundation we map out a clear technical roadmap so every decision has a reason.',
     cta: { label: "Let's Get Connected", href: '/contact' },
     variant: 'fire',
-    image: '/images/process-discover.jpg',
+    image: '/images/process-discover.jpeg',
   },
   {
     id: 'design',
@@ -15,9 +15,9 @@ export const steps = [
     title: 'Design & develop',
     description:
       'Design and engineering run in parallel. You get working prototypes fast, with a codebase built to scale - not just to demo.',
-    cta: { label: 'See How It Works', href: '/services' },
+    cta: { label: 'See How It Works', href: '/contact' },
     variant: 'ember',
-    image: '/images/process-design.jpg',
+    image: '/images/process-design.jpeg',
   },
   {
     id: 'launch',
@@ -25,8 +25,8 @@ export const steps = [
     title: 'Launch & optimize',
     description:
       'Going live is not the finish line. We monitor, measure, and iterate — making sure your product keeps performing as your audience grows.',
-    cta: { label: 'Schedule a Demo', href: '/schedule-demo' },
+    cta: { label: 'Schedule a Demo', href: '/contact' },
     variant: 'gold',
-    image: '/images/process-launch.jpg',
+    image: '/images/process-launch.jpeg',
   },
 ]

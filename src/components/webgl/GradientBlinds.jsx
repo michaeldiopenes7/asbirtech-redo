@@ -259,7 +259,7 @@ void main() {
       ro.disconnect();
       io.disconnect()
     };
-  }, [activeBlindCount, mouseDampening]);
+  }, [activeBlindCount, mouseDampening, disableHover]);
 
   return (
     <div ref={containerRef} className={`gradient-blinds-container ${className}`}>

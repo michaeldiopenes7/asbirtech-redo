@@ -1,4 +1,3 @@
-/* global IntersectionObserver */
 import { useRef, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'
@@ -36,14 +35,14 @@ export default function InsightCard({ post, showMeta = false, showArrow = false 
             loading="lazy"
             decoding="async"
             className={imgLoaded ? 'is-loaded' : ''}
+            style={post.imagePosition ? { objectPosition: post.imagePosition } : undefined}
             onLoad={() => setImgLoaded(true)}
             onError={() => setImgLoaded(true)}
           />
         )}
       </div>
       <div className="ic-body">
-        {showMeta && <div className="ic-meta"><span className="ic-category">{post.category}</span><span className="ic-date">{post.date}</span></div>}
-        {!showMeta && <span className="ic-category">{post.category}</span>}
+        {showMeta && <div className="ic-meta"><span className="ic-date">{post.date}</span></div>}
         <h3 className="ic-title">{post.title}</h3>
         <div className="ic-footer">
           <div className="ic-author">

@@ -43,6 +43,7 @@ export default function Showcase() {
               client={p.client}
               title={p.title}
               image={p.image}
+              imagePosition={p.imagePosition}
             />
           ))}
         </div>

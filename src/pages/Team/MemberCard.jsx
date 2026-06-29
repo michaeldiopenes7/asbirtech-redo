@@ -1,9 +1,17 @@
 import { useEffect, useRef, useState } from 'react'
 
-export default function MemberCard({ member, photo }) {
+export default function MemberCard({ member, photo, hoverPhoto }) {
   const cardRef = useRef(null)
   const [inView, setInView] = useState(false)
   const [imgLoaded, setImgLoaded] = useState(false)
+  const [hovered, setHovered] = useState(false)
+
+  // Preload the wacky hover image so the swap is instant
+  useEffect(() => {
+    if (!inView || !hoverPhoto) return
+    const img = new Image()
+    img.src = hoverPhoto
+  }, [inView, hoverPhoto])
 
   useEffect(() => {
     const el = cardRef.current
@@ -35,6 +43,9 @@ export default function MemberCard({ member, photo }) {
     <div
       ref={cardRef}
       className={`tp-member-card${ready ? ' is-ready' : ' is-loading'}`}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onContextMenu={(e) => e.preventDefault()}
     >
       {!ready && (
         <div className="tp-member-skeleton" aria-hidden="true">
@@ -49,9 +60,26 @@ export default function MemberCard({ member, photo }) {
           alt={member.name}
           loading="lazy"
           decoding="async"
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
           className={`tp-member-avatar${imgLoaded ? ' is-loaded' : ''}`}
           onLoad={() => setImgLoaded(true)}
           onError={() => setImgLoaded(true)}
+        />
+      )}
+
+      {inView && photo && hoverPhoto && (
+        <img
+          src={hoverPhoto}
+          alt=""
+          aria-hidden="true"
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
+          className={`tp-member-avatar tp-member-avatar--hover${hovered ? ' is-shown' : ''}`}
         />
       )}
 

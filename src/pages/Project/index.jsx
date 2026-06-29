@@ -3,6 +3,7 @@ import { useParams, Link, Navigate, useLocation } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'
 import { projects } from '../../content/projects'
 import Nav from '../../components/layout/Nav'
+import ShowcaseCard from '../../components/webgl/ShowcaseCard'
 import logo from '../../assets/images/asbirtechlogo.png'
 import fireFrag  from '../../shaders/showcase-fire.glsl'
 import emberFrag from '../../shaders/showcase-ember.glsl'
@@ -149,9 +150,22 @@ export default function ProjectPage() {
           </div>
         </div>
 
-        {/* ── WebGL cover ── */}
+        {/* ── Cover banner ── */}
         <div className="pp-cover">
-          <ProjectVisual variant={project.variant} />
+          {project.image ? (
+            <div className="pp-visual-wrap">
+              <img
+                src={project.image}
+                alt={`${project.client} project cover`}
+                className="pp-cover-img"
+                style={project.imagePosition ? { objectPosition: project.imagePosition } : undefined}
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          ) : (
+            <ProjectVisual variant={project.variant} />
+          )}
         </div>
 
         {/* ── Body ── */}
@@ -201,16 +215,16 @@ export default function ProjectPage() {
                 </Link>
               </div>
               <div className="pp-related-grid">
-                {related.map(p => (
-                  <Link key={p.id} to={`/projects/${p.id}`} className="pp-related-card">
-                    <div className="pp-related-visual">
-                      <ProjectVisual variant={p.variant} />
-                      <div className="pp-related-overlay">
-                        <span className="pp-related-client">{p.client}</span>
-                        <h3 className="pp-related-title">{p.title}</h3>
-                      </div>
-                    </div>
-                  </Link>
+                {related.map((p, i) => (
+                  <ShowcaseCard
+                    key={p.id}
+                    id={p.id}
+                    index={i + 1}
+                    client={p.client}
+                    title={p.title}
+                    image={p.image}
+                    imagePosition={p.imagePosition}
+                  />
                 ))}
               </div>
             </div>

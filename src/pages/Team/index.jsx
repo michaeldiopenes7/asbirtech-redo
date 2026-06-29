@@ -1,6 +1,5 @@
 import { useRef, useEffect, useState } from 'react'
 import MemberCard from './MemberCard'
-import { Link } from 'react-router-dom'
 import fireFrag from '../../shaders/showcase-fire.glsl'
 import Nav from '../../components/layout/Nav'
 import { departments } from '../../content/team'
@@ -144,7 +143,7 @@ export default function TeamPage() {
               </div>
               <div className="tp-members-grid">
                 {dept.members.map(member => (
-                  <MemberCard key={member.name} member={member} photo={member.photo} />
+                  <MemberCard key={member.name} member={member} photo={member.photo} hoverPhoto={member.hoverPhoto} />
                 ))}
               </div>
             </section>

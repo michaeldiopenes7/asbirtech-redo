@@ -1,12 +1,17 @@
 import bzpLogo from '../assets/images/bzp.png'
 import planoutLogo from '../assets/images/planout.png'
-import korteLogo from '../assets/images/korte.png'
+import tripketLogo from '../assets/images/Tripketph.png'
+import tripketImg from '../assets/images/tripketimg.png'
+import tripketCover from '../assets/images/Tripketprjcover.png'
+import bzpImg from '../assets/images/bzpprojcover.png'
+import planoutImg from '../assets/images/planoutprjcover.png'
 
 export const projects = [
   {
     id: 'bzp',
     variant: 'fire',
     logo: bzpLogo,
+    image: bzpImg,
     client: 'BeetzeePLAY',
     tags: ['Streaming', 'Mobile'],
     title: 'BeetzeePLAY: Vertical Short Drama',
@@ -23,6 +28,7 @@ export const projects = [
     id: 'planout',
     variant: 'ember',
     logo: planoutLogo,
+    image: planoutImg,
     client: 'PlanOut',
     tags: ['Ticketing', 'Web App'],
     title: 'PlanOut: Your All-Access Pass to Adventure',
@@ -30,14 +36,16 @@ export const projects = [
       'PlanOut is a user-friendly app designed to make attending outdoor adventure events simple and stress-free. It provides a reliable place for guests to buy tickets and keep track of their bookings all in one spot. By streamlining the entire process from purchase to check-in, PlanOut ensures that attendees spend less time handling paperwork and more time enjoying the outdoors.',
   },
   {
-    id: 'korte',
+    id: 'tripket',
     variant: 'gold',
-    logo: korteLogo,
-    client: 'Korte Philippines',
-    tags: ['Marketplace', 'UX / UI'],
-    title: 'Korte: Play Without the Wait',
+    logo: tripketLogo,
+    image: tripketCover,
+    imagePosition: 'center 25%',
+    client: 'Tripket PH',
+    tags: ['Travel', 'Booking'],
+    title: 'Tripket PH: Sea Travel, Simplified',
     description:
-      'Court discovery and booking platform with availability calendars, venue management tools, and a seamless mobile booking flow for basketball, badminton, and tennis facilities across the Philippines.',
+      'A sea-travel ticketing platform that lets passengers search routes, browse scheduled voyages, and book ferry tickets online — paired with an admin dashboard for operators to manage their fleet, routes, voyages, and bookings.',
     body: [
       {
         type: 'heading',
@@ -45,7 +53,7 @@ export const projects = [
       },
       {
         type: 'paragraph',
-        text: 'Sports court bookings in the Philippines were almost entirely offline — phone calls, Facebook messages, and walk-ins. Korte Philippines set out to change that with a marketplace that lets players find and book courts the same way they book hotels.',
+        text: 'Booking inter-island ferry trips in the Philippines still relied on port queues, phone calls, and manual manifests. Tripket PH set out to bring voyage ticketing online — giving passengers a way to find and book trips in advance, and operators a single place to run their fleet.',
       },
       {
         type: 'heading',
@@ -53,15 +61,21 @@ export const projects = [
       },
       {
         type: 'paragraph',
-        text: 'We led the full product design and frontend development. The primary design challenge was making court availability intuitive across different sports, venue sizes, and pricing structures without overwhelming casual users.',
+        text: 'We delivered the full product — a passenger-facing booking experience and an operator admin dashboard. The core challenge was modeling voyages across vessels, routes, and schedules while keeping booking fast and clear for everyday travelers.',
+      },
+      {
+        type: 'image',
+        src: tripketImg,
+        alt: 'Tripket PH operator admin dashboard showing revenue, ticket bookings, and pending bookings',
+        caption: 'The operator dashboard — revenue, ticket bookings, and voyage activity at a glance.',
       },
       {
         type: 'list',
         items: [
-          { bold: 'Discovery layer: ', text: 'Map-based and list-based search with filters for sport type, location, price, and amenities.' },
-          { bold: 'Availability calendar: ', text: 'Real-time slot management with buffer times and recurring booking support for regulars.' },
-          { bold: 'Venue dashboard: ', text: 'Court owners can manage listings, block dates, set dynamic pricing, and track earnings.' },
-          { bold: 'Mobile booking flow: ', text: 'Three-tap booking optimized for low-end Android devices common in provincial areas.' },
+          { bold: 'Route & voyage search: ', text: 'Passengers browse routes and scheduled voyages with real-time availability and pricing.' },
+          { bold: 'Booking flow: ', text: 'A streamlined ticket purchase and booking management experience built for mobile.' },
+          { bold: 'Fleet management: ', text: 'Operators manage vessels, route catalogues, and scheduled voyages with live load percentages.' },
+          { bold: 'Admin dashboard: ', text: 'KPIs, revenue charts, passenger bookings, tickets, and audit logs in one console.' },
         ],
       },
       {
@@ -70,7 +84,7 @@ export const projects = [
       },
       {
         type: 'paragraph',
-        text: 'Korte launched with 38 venues across Cebu and Metro Manila. Within three months, the platform was facilitating over 600 bookings per week with a 91% booking completion rate — well above the industry average for marketplace platforms in the region.',
+        text: 'Tripket PH moved voyage ticketing off the dock and online, giving passengers advance booking and operators end-to-end visibility into voyages, load, and revenue from a single dashboard.',
       },
     ],
   },

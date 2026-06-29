@@ -94,6 +94,38 @@
   margin: 0;
 }
 
+.about-cta {
+  display: flex;
+}
+
+.about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: background 0.2s ease, opacity 0.2s;
+  border-radius: 12px;
+}
+
+.about-btn--primary {
+  background: #fff;
+  color: #000;
+}
+
+.about-btn-arrow {
+  font-size: 15px;
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.about-btn:hover .about-btn-arrow {
+  transform: translate(3px, -3px);
+}
+
 @media (max-width: 860px) {
   .about-inner {
     grid-template-columns: 1fr;
