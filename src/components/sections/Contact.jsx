@@ -1,14 +1,15 @@
 import { useEffect, useRef } from 'react'
-import { LuArrowUpRight, LuMail, LuPhone, LuMapPin } from 'react-icons/lu'
+import { LuArrowUpRight, LuMail, LuPhone, LuMapPin, LuFacebook } from 'react-icons/lu'
 import fireFrag from '../../shaders/showcase-fire.glsl'
 import './Contact.css'
 
 const VERT = `attribute vec2 a_pos; void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }`
 
 const contactItems = [
-  { icon: LuMail,    value: 'hello@asbirtech.com',      href: 'mailto:hello@asbirtech.com' },
-  { icon: LuPhone,   value: '+63 (35) 422-0000',           href: 'tel:+6335422000' },
-  { icon: LuMapPin,  value: 'Dumaguete City, Philippines', href: null },
+  { icon: LuMail,     value: 'hello@asbir.tech',            href: 'mailto:hello@asbir.tech' },
+  { icon: LuPhone,    value: '(+63) (035) 402 1881',        href: 'tel:+63354021881' },
+  { icon: LuFacebook, value: 'facebook.com/asbirtech',      href: 'https://www.facebook.com/asbirtech' },
+  { icon: LuMapPin,   value: 'Dumaguete City, Philippines', href: null },
 ]
 
 function ContactSlat() {
@@ -112,20 +113,23 @@ export default function Contact() {
               Our team delivers strategic support in building and managing your cloud
               and web infrastructure, driving operational excellence and reliability.
             </p>
-            <a href="mailto:hello@asbirtech.com" className="contact-btn">
+            <a href="mailto:hello@asbir.tech" className="contact-btn">
               Get in touch <LuArrowUpRight aria-hidden="true" />
             </a>
             <div className="contact-meta">
-              {contactItems.map(({ icon: Icon, value, href }, i) => (
-                <span key={value} className="contact-meta-item">
-                  {i > 0 && <span className="contact-meta-divider" aria-hidden="true" />}
-                  <Icon size={13} aria-hidden="true" />
-                  {href
-                    ? <a href={href}>{value}</a>
-                    : <span>{value}</span>
-                  }
-                </span>
-              ))}
+              {contactItems.map(({ icon: Icon, value, href }, i) => {
+                const external = href?.startsWith('http')
+                return (
+                  <span key={value} className="contact-meta-item">
+                    {i > 0 && <span className="contact-meta-divider" aria-hidden="true" />}
+                    <Icon size={13} aria-hidden="true" />
+                    {href
+                      ? <a href={href} {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{value}</a>
+                      : <span>{value}</span>
+                    }
+                  </span>
+                )
+              })}
             </div>
           </div>
         </div>

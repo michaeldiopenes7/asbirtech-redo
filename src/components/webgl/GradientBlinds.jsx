@@ -81,9 +81,9 @@ void main() {
 
   // Upper-right glow — fade it out in the lower portion so it stays up top
   // and leaves a dark gap above the bottom-left patch (raised on mobile).
-  float lightR = lightFalloff(uv, vec2(1.05, 1.0), aspect, 2.05, 0.30);
-  float rLow = mix(0.30, 0.55, portrait);  // higher cutoff on mobile = glow stays higher
-  lightR *= smoothstep(rLow, rLow + 0.48, uv.y);
+  float lightR = lightFalloff(uv, vec2(1.05, 1.0), aspect, 2.45, 0.30);
+  float rLow = mix(0.08, 0.40, portrait);  // higher cutoff on mobile = glow stays higher
+  lightR *= smoothstep(rLow, rLow + 0.60, uv.y);
   // Small secondary glow in the bottom-left (contained patch, like the reference).
   // Pull it lower and shrink it a touch on mobile to widen the gap.
   float lY = mix(-0.04, -0.18, portrait);

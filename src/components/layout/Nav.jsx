@@ -8,7 +8,6 @@ export default function Nav() {
   const [isClosing, setIsClosing] = useState(false)
   const { pathname } = useLocation()
   const navigate = useNavigate()
-  const isContact = pathname === '/contact'
 
   const openMenu = () => setMenuOpen(true)
 
@@ -50,9 +49,6 @@ export default function Nav() {
         </ul>
 
         <div className="nav-cta">
-          {!isContact && (
-            <Link to="/contact" className="btn-contact">Contact Us</Link>
-          )}
           <button
             className="nav-menu-btn"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -75,8 +71,6 @@ export default function Nav() {
             <a href="/#work" className="nav-mobile-link" onClick={handleHashLink('#work')}>Showcase</a>
             <a href="/#articles" className="nav-mobile-link" onClick={handleHashLink('#articles')}>Articles</a>
             <Link to="/team" className="nav-mobile-link" onClick={closeMenu}>Team</Link>
-            <div className="nav-mobile-divider" />
-            <Link to="/contact" className="nav-mobile-cta" onClick={closeMenu}>Contact Us</Link>
           </div>
         )}
       </div>

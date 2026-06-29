@@ -21,6 +21,7 @@ export default function useHeroIntro(rootRef) {
       const pill = root.querySelector('.hero-pill')
       const lines = root.querySelectorAll('.hero-headline > span')
       const paras = root.querySelectorAll('.hero-description')
+      const actions = root.querySelector('.hero-actions')
 
       const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
 
@@ -40,6 +41,9 @@ export default function useHeroIntro(rootRef) {
           { opacity: 0, y: 24, duration: 0.8, stagger: 0.1 },
           0.5
         )
+      }
+      if (actions) {
+        tl.from(actions, { opacity: 0, y: 20, duration: 0.7 }, 0.68)
       }
     }, root)
 

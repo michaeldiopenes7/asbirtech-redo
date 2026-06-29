@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { LuArrowUpRight, LuMail, LuPhone, LuCalendar, LuMapPin, LuCopy, LuCheck } from 'react-icons/lu'
+import { LuArrowUpRight, LuMail, LuPhone, LuCalendar, LuMapPin, LuCopy, LuCheck, LuFacebook } from 'react-icons/lu'
 import fireFrag from '../../shaders/showcase-fire.glsl'
 import Nav from '../../components/layout/Nav'
 import logo from '../../assets/images/asbirtechlogo.png'
@@ -89,28 +89,36 @@ const ctaCards = [
   {
     icon: LuMail,
     label: 'Email us',
-    value: 'hello@asbirtech.com',
+    value: 'hello@asbir.tech',
     desc: null,
-    href: 'mailto:hello@asbirtech.com',
+    href: 'mailto:hello@asbir.tech',
   },
   {
     icon: LuPhone,
     label: 'Call us',
-    value: '+63 (35) 422-0000',
-    desc: 'Mon–Fri, 9 am – 6 pm PHT',
-    href: 'tel:+6335422000',
+    value: '(+63) (035) 402 1881',
+    desc: '9 AM to 6 PM (Monday - Friday)',
+    href: 'tel:+63354021881',
+  },
+  {
+    icon: LuFacebook,
+    label: 'Follow us',
+    value: 'facebook.com/asbirtech',
+    desc: null,
+    href: 'https://www.facebook.com/asbirtech',
   },
   {
     icon: LuCalendar,
     label: 'Book a discovery call',
     value: 'Schedule 30 min',
     desc: null,
-    href: 'mailto:hello@asbirtech.com?subject=Discovery%20Call%20Request',
+    href: 'mailto:hello@asbir.tech?subject=Discovery%20Call%20Request',
   },
 ]
 
 function LeafletMap() {
   const mapRef = useRef(null)
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     let map = null
@@ -141,7 +149,9 @@ function LeafletMap() {
       // Zoom control — positioned bottom-right, styled via CSS
       L.control.zoom({ position: 'bottomright' }).addTo(map)
 
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
+      const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+      tiles.on('load', () => setLoaded(true))
+      tiles.addTo(map)
 
       const icon = L.divIcon({
         className: '',
@@ -155,7 +165,12 @@ function LeafletMap() {
     return () => { if (map) map.remove() }
   }, [])
 
-  return <div ref={mapRef} className="cp-map-leaflet" />
+  return (
+    <>
+      {!loaded && <div className="cp-map-skel skel" aria-hidden="true" />}
+      <div ref={mapRef} className="cp-map-leaflet" />
+    </>
+  )
 }
 
 export default function ContactPage() {
@@ -222,7 +237,12 @@ export default function ContactPage() {
 
               <div className="cp-cards">
                 {ctaCards.map(({ icon: Icon, label, value, desc, href }) => (
-                  <a key={href} href={href} className="cp-card">
+                  <a
+                    key={href}
+                    href={href}
+                    className="cp-card"
+                    {...(href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
                     <span className="cp-card-icon">
                       <Icon size={18} aria-hidden="true" />
                     </span>
@@ -236,7 +256,7 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              <a href="mailto:hello@asbirtech.com" className="cp-primary-btn">
+              <a href="mailto:hello@asbir.tech" className="cp-primary-btn">
                 Start a project <LuArrowUpRight size={16} aria-hidden="true" />
               </a>
 

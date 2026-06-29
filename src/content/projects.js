@@ -16,7 +16,7 @@ export const projects = [
     tags: ['Streaming', 'Mobile'],
     title: 'BeetzeePLAY: Vertical Short Drama',
     description:
-      'Built a scalable video streaming platform with subscription management, content delivery, and mobile-first experience for a growing audience of independent film lovers across Southeast Asia.',
+      'Beetzee Play is the Philippines’ first “Piso Serye” platform, offering affordable, short-form dramas optimized for vertical mobile viewing. It features a curated selection of fast-paced local and foreign series designed for quick entertainment on the go. The platform is accessible via Maya, GCash, GlobeOne, PalawanPay, and M Lhuillier, and is also available for download on the App Store and Google Play.',
     body: [
       {
         type: 'paragraph',
@@ -33,7 +33,7 @@ export const projects = [
     tags: ['Ticketing', 'Web App'],
     title: 'PlanOut: Your All-Access Pass to Adventure',
     description:
-      'PlanOut is a user-friendly app designed to make attending outdoor adventure events simple and stress-free. It provides a reliable place for guests to buy tickets and keep track of their bookings all in one spot. By streamlining the entire process from purchase to check-in, PlanOut ensures that attendees spend less time handling paperwork and more time enjoying the outdoors.',
+      'PlanOut is a user-friendly app designed to make attending both outdoor and indoor sports or activities simple and stress-free. It provides a reliable platform for guests to purchase tickets and track bookings, while empowering organizers to manage everything from ticket tiers to real-time sales. Looking ahead, the platform will expand to include event organizing and accommodation bookings, ensuring a seamless experience nationwide. By streamlining these, PlanOut helps everyone spend less time on paperwork and more time enjoying the event.',
   },
   {
     id: 'tripket',
@@ -43,9 +43,9 @@ export const projects = [
     imagePosition: 'center 25%',
     client: 'Tripket PH',
     tags: ['Travel', 'Booking'],
-    title: 'Tripket PH: Sea Travel, Simplified',
+    title: 'Tripket: Simplifying Island Travel, One Click at a Time',
     description:
-      'A sea-travel ticketing platform that lets passengers search routes, browse scheduled voyages, and book ferry tickets online — paired with an admin dashboard for operators to manage their fleet, routes, voyages, and bookings.',
+      'Tripket PH is a project focused on making boat travel simple for everyone. This platform lets you skip the crowded ticket lines at the pier by booking your ferry trips online. By teaming up, we are making it much easier for people and businesses to move between islands without the stress. It is the perfect way to enjoy a smooth, hassle-free journey across the Philippines.',
     body: [
       {
         type: 'heading',

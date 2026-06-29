@@ -146,6 +146,12 @@
   height: 100%;
 }
 
+.cp-map-skel {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+}
+
 /* Dark tiles only — keeps the orange marker unaffected */
 .cp-map-leaflet .leaflet-tile-pane {
   filter: grayscale(1) invert(1) brightness(0.75) contrast(0.86) hue-rotate(180deg);

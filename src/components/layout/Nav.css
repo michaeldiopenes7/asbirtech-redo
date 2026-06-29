@@ -71,29 +71,6 @@
 }
 
 /* ── Contact Us button (desktop) — bright white CTA against the orange backdrop ── */
-.btn-contact {
-  display: inline-block;
-  text-decoration: none;
-  color: #000;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  padding: 11px 24px;
-  border: 1px solid #fff;
-  border-radius: 12px;
-  background: #fff;
-  transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  white-space: nowrap;
-  box-shadow: 0 6px 20px -8px rgba(0, 0, 0, 0.45);
-}
-
-.btn-contact:hover {
-  background: rgba(255, 255, 255, 0.88);
-  border-color: rgba(255, 255, 255, 0.88);
-  transform: translateY(-1px);
-  box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.55);
-}
-
 /* ── Hamburger button ── */
 .nav-menu-btn {
   display: none;
@@ -213,33 +190,6 @@
 }
 
 /* Divider */
-.nav-mobile-divider {
-  height: 1px;
-  background: rgba(255, 255, 255, 0.07);
-  margin: 4px 8px;
-}
-
-/* Contact Us CTA inside mobile menu */
-.nav-mobile-cta {
-  display: block;
-  text-decoration: none;
-  color: #000;
-  font-size: 15px;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  padding: 12px 16px;
-  border-radius: 10px;
-  background: #fff;
-  border: 1px solid #fff;
-  transition: background 0.15s, color 0.15s;
-  margin-top: 2px;
-  text-align: center;
-}
-
-.nav-mobile-cta:hover {
-  background: rgba(255, 255, 255, 0.88);
-}
-
 /* ── Breakpoints ── */
 @media (max-width: 900px) {
   .hero-nav {
@@ -249,10 +199,6 @@
   }
 
   .nav-links {
-    display: none;
-  }
-
-  .btn-contact {
     display: none;
   }
 
