@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useParams, Link, Navigate, useLocation } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'
 import { projects } from '../../content/projects'
@@ -13,6 +13,25 @@ import './ProjectPage.css'
 const VERT   = `attribute vec2 a_pos; void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }`
 const FRAGS  = { fire: fireFrag, ember: emberFrag, gold: goldFrag }
 const BLINDS = { fire: 38, ember: 42, gold: 38 }
+
+// Image with a shimmer skeleton until it loads, then fades in.
+function SkeletonImage({ className, alt = '', ...props }) {
+  const [loaded, setLoaded] = useState(false)
+  return (
+    <>
+      {!loaded && <div className={`${className}-skel skel`} aria-hidden="true" />}
+      <img
+        {...props}
+        alt={alt}
+        className={`${className}${loaded ? ' is-loaded' : ''}`}
+        loading="lazy"
+        decoding="async"
+        onLoad={() => setLoaded(true)}
+        onError={() => setLoaded(true)}
+      />
+    </>
+  )
+}
 
 function ScrollToTop() {
   const { pathname } = useLocation()
@@ -154,13 +173,11 @@ export default function ProjectPage() {
         <div className="pp-cover">
           {project.image ? (
             <div className="pp-visual-wrap">
-              <img
+              <SkeletonImage
                 src={project.image}
                 alt={`${project.client} project cover`}
                 className="pp-cover-img"
                 style={project.imagePosition ? { objectPosition: project.imagePosition } : undefined}
-                loading="lazy"
-                decoding="async"
               />
             </div>
           ) : (

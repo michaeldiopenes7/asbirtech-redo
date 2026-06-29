@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import fireFrag  from '../../shaders/showcase-fire.glsl'
 import emberFrag from '../../shaders/showcase-ember.glsl'
 import goldFrag  from '../../shaders/showcase-gold.glsl'
@@ -14,6 +14,7 @@ const VARIANTS = {
 export default function ProcessSlat({ variant = 'fire', image }) {
   const containerRef = useRef(null)
   const canvasRef    = useRef(null)
+  const [imgLoaded, setImgLoaded] = useState(false)
 
   useEffect(() => {
     const container = containerRef.current
@@ -98,13 +99,16 @@ export default function ProcessSlat({ variant = 'fire', image }) {
   return (
     <div className="process-slat-wrap" ref={containerRef} aria-hidden="true">
       <canvas className="process-slat-canvas" ref={canvasRef} />
+      {image && !imgLoaded && <div className="process-slat-skel skel" aria-hidden="true" />}
       {image && (
         <img
           src={image}
           alt=""
-          className="process-slat-image"
+          className={`process-slat-image${imgLoaded ? ' is-loaded' : ''}`}
           loading="lazy"
           decoding="async"
+          onLoad={() => setImgLoaded(true)}
+          onError={() => setImgLoaded(true)}
         />
       )}
     </div>

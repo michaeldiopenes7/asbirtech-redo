@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from 'react'
-import { LuArrowUpRight, LuMail, LuPhone, LuCalendar, LuMapPin } from 'react-icons/lu'
+import { LuArrowUpRight, LuMail, LuPhone, LuCalendar, LuMapPin, LuCopy, LuCheck } from 'react-icons/lu'
 import fireFrag from '../../shaders/showcase-fire.glsl'
 import Nav from '../../components/layout/Nav'
 import logo from '../../assets/images/asbirtechlogo.png'
@@ -212,7 +212,9 @@ export default function ContactPage() {
                 <span className="cp-address-text">
                   Señor Sto. Niño Drive, Mangnao, Dumaguete City, 6200 Negros Oriental
                 </span>
-                <span className="cp-address-copy">{copied ? 'Copied!' : 'Copy'}</span>
+                <span className="cp-address-copy" aria-label={copied ? 'Copied' : 'Copy address'}>
+                  {copied ? <LuCheck size={15} aria-hidden="true" /> : <LuCopy size={15} aria-hidden="true" />}
+                </span>
               </button>
             </div>
 

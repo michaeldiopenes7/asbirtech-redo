@@ -149,6 +149,18 @@
   object-fit: cover;
   object-position: center;
   display: block;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.pp-cover-img.is-loaded {
+  opacity: 1;
+}
+
+.pp-cover-img-skel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .pp-visual-canvas {

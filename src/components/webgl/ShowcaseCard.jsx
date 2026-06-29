@@ -1,7 +1,10 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'
 
 export default function ShowcaseCard({ client, title, index, id, image, imagePosition }) {
+  const [imgLoaded, setImgLoaded] = useState(false)
+
   return (
     <Link to={`/projects/${id}`} className="sc-card" aria-label={`View ${client} case study`}>
       <div className="sc-stage">
@@ -11,14 +14,19 @@ export default function ShowcaseCard({ client, title, index, id, image, imagePos
 
         <div className="sc-frame" aria-hidden="true">
           {image ? (
-            <img
-              src={image}
-              alt=""
-              className="sc-frame-img"
-              style={imagePosition ? { objectPosition: imagePosition } : undefined}
-              loading="lazy"
-              decoding="async"
-            />
+            <>
+              {!imgLoaded && <div className="sc-frame-skel skel" aria-hidden="true" />}
+              <img
+                src={image}
+                alt=""
+                className={`sc-frame-img${imgLoaded ? ' is-loaded' : ''}`}
+                style={imagePosition ? { objectPosition: imagePosition } : undefined}
+                loading="lazy"
+                decoding="async"
+                onLoad={() => setImgLoaded(true)}
+                onError={() => setImgLoaded(true)}
+              />
+            </>
           ) : (
             <div className="sc-frame-placeholder" />
           )}

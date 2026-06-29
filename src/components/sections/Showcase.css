@@ -142,6 +142,18 @@
   object-fit: cover;
   object-position: center;
   display: block;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.sc-frame-img.is-loaded {
+  opacity: 1;
+}
+
+.sc-frame-skel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
 }
 
 .sc-frame-placeholder {

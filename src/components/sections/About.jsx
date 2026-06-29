@@ -1,9 +1,12 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import GradientBlinds from '../webgl/GradientBlinds'
 import teamPhoto from '../../assets/images/asbirtech-team.jpg'
 import './About.css'
 
 export default function About() {
+  const [imgLoaded, setImgLoaded] = useState(false)
+
   return (
     <section id="about" className="about">
       <div className="about-inner">
@@ -15,7 +18,16 @@ export default function About() {
           <div className="about-visual-top-fade" />
           <div className="about-visual-glow" />
           <div className="about-visual-photo">
-            <img src={teamPhoto} alt="The ASBIRTECH team" className="about-visual-img" loading="lazy" decoding="async" />
+            {!imgLoaded && <div className="about-visual-skel skel" aria-hidden="true" />}
+            <img
+              src={teamPhoto}
+              alt="The ASBIRTECH team"
+              className={`about-visual-img${imgLoaded ? ' is-loaded' : ''}`}
+              loading="lazy"
+              decoding="async"
+              onLoad={() => setImgLoaded(true)}
+              onError={() => setImgLoaded(true)}
+            />
           </div>
         </div>
 
