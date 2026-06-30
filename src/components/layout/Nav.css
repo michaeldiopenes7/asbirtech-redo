@@ -22,8 +22,8 @@
   padding: 24px 64px;
 }
 
-/* When the mobile menu is open, lift the bar above the blur overlay so the
-   logo + close (X) button stay crisp and tappable. */
+/* When the mobile menu is open, keep the bar on top so the logo + X stay
+   tappable. The glass container stays visible (no blur/overlay behind). */
 .hero-nav.menu-open {
   z-index: 1001;
 }
@@ -96,7 +96,7 @@
 /* Inactive links are ghosted; the active one is solid white */
 .nav-links a {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.66);
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -140,6 +140,16 @@
 
 .nav-menu-btn:hover {
   opacity: 0.7;
+}
+
+.nav-menu-btn:focus {
+  outline: none;
+}
+
+.nav-menu-btn:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 4px;
+  border-radius: 8px;
 }
 
 .nav-menu-icon {
@@ -188,39 +198,6 @@
   opacity: 1;
 }
 
-/* ── Tap-outside backdrop: closes the menu and blurs the page behind it ── */
-.nav-menu-overlay {
-  position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  cursor: default;
-  /* Sits behind the bar's logo/X (z-index 2) and the dropdown (z-index 1000),
-     so only the page behind the dropdown is blurred — the nav bar stays crisp. */
-  z-index: 1;
-  animation: navOverlayIn 0.2s ease-out forwards;
-}
-
-.nav-menu-overlay.closing {
-  animation: navOverlayOut 0.2s ease-in forwards;
-}
-
-@keyframes navOverlayIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes navOverlayOut {
-  from { opacity: 1; }
-  to   { opacity: 0; }
-}
-
 /* ── Mobile menu panel — aligned to the nav glass bar's side margins ── */
 .nav-mobile-menu {
   position: absolute;
@@ -230,7 +207,8 @@
   display: flex;
   flex-direction: column;
   padding: 8px;
-  background: var(--glass-bg-strong);
+  /* Match the nav glass container's layer style (same tint + blur) */
+  background: rgba(10, 10, 10, 0.6);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
@@ -312,12 +290,6 @@
     inset: 8px 12px;
     left: 12px;
     right: 12px;
-  }
-
-  /* When the menu is open, keep the bar's glass above the blur overlay (z-index 1)
-     so the whole bar stays crisp — logo/X sit above it at z-index 3. */
-  .hero-nav.menu-open::before {
-    z-index: 2;
   }
 }
 

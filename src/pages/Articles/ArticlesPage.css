@@ -89,7 +89,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.50);
+  color: rgba(255, 255, 255, 0.66);
   max-width: 520px;
   margin: 0;
 }
@@ -112,8 +112,14 @@
 
 @media (max-width: 560px) {
   .ap-hero-section {
-    height: 40vh;
+    height: auto;
     min-height: 240px;
+  }
+
+  /* Push the title clear of the fixed nav bar (matches Team & Contact) */
+  .ap-hero-content {
+    padding-top: 110px;
+    padding-bottom: 40px;
   }
 
   .ap-main .container {

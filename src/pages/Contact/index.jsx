@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import { LuArrowUpRight, LuMail, LuPhone, LuCalendar, LuMapPin, LuCopy, LuCheck, LuFacebook } from 'react-icons/lu'
 import fireFrag from '../../shaders/showcase-fire.glsl'
 import Nav from '../../components/layout/Nav'
-import logo from '../../assets/images/asbirtechlogo.png'
+import SiteFooter from '../../components/layout/SiteFooter'
 import 'leaflet/dist/leaflet.css'
 import './ContactPage.css'
 
@@ -270,15 +270,7 @@ export default function ContactPage() {
         </div>
       </main>
 
-      <footer className="site-footer" aria-label="Site footer">
-        <div className="footer-bar">
-          <div className="footer-bar-left">
-            <img src={logo} alt="Asbir Tech" className="footer-bar-logo" />
-            <span className="footer-bar-copy">&copy; {new Date().getFullYear()} AsbirTech, Inc.</span>
-          </div>
-          <span className="footer-bar-location">🇵🇭&nbsp; Dumaguete, PH</span>
-        </div>
-      </footer>
+      <SiteFooter />
 
     </div>
   )

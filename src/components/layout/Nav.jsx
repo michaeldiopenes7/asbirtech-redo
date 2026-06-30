@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import logo from '../../assets/images/asbirtechlogo.png'
 import './Nav.css'
@@ -10,6 +10,9 @@ export default function Nav() {
   const [activeSection, setActiveSection] = useState('home')
   const { pathname } = useLocation()
   const navigate = useNavigate()
+
+  const menuRef = useRef(null)
+  const menuBtnRef = useRef(null)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
@@ -63,6 +66,18 @@ export default function Nav() {
 
   const toggleMenu = () => (menuOpen ? closeMenu() : openMenu())
 
+  // Close when clicking/tapping anywhere outside the dropdown and the toggle button.
+  useEffect(() => {
+    if (!menuOpen) return
+    const onPointerDown = (e) => {
+      if (menuRef.current?.contains(e.target)) return
+      if (menuBtnRef.current?.contains(e.target)) return
+      closeMenu()
+    }
+    document.addEventListener('pointerdown', onPointerDown)
+    return () => document.removeEventListener('pointerdown', onPointerDown)
+  }, [menuOpen])
+
   const handleHashLink = (hash) => (e) => {
     e.preventDefault()
     if (menuOpen) closeMenu()
@@ -92,6 +107,7 @@ export default function Nav() {
 
         <div className="nav-cta">
           <button
+            ref={menuBtnRef}
             className="nav-menu-btn"
             aria-label={menuOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={menuOpen}
@@ -106,16 +122,7 @@ export default function Nav() {
       </div>
 
         {menuOpen && (
-          <button
-            type="button"
-            className={`nav-menu-overlay ${isClosing ? 'closing' : ''}`}
-            aria-label="Close menu"
-            onClick={closeMenu}
-          />
-        )}
-
-        {menuOpen && (
-          <div className={`nav-mobile-menu ${isClosing ? 'closing' : ''}`}>
+          <div ref={menuRef} className={`nav-mobile-menu ${isClosing ? 'closing' : ''}`}>
             <Link to="/" className={`nav-mobile-link ${linkClass('home')}`} onClick={closeMenu}>Home</Link>
             <a href="/#services" className={`nav-mobile-link ${linkClass('services')}`} onClick={handleHashLink('#services')}>Services</a>
             <a href="/#about" className={`nav-mobile-link ${linkClass('about')}`} onClick={handleHashLink('#about')}>About Us</a>

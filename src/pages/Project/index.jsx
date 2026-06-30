@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useParams, Link, useLocation } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'
 import { projects } from '../../content/projects'
@@ -35,7 +35,16 @@ function SkeletonImage({ className, alt = '', ...props }) {
 
 function ScrollToTop() {
   const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  // Reset scroll *before* paint so a fresh page never flashes at the previous
+  // page's scroll offset (which made entrance animations appear to start
+  // mid-page / "from the bottom").
+  useLayoutEffect(() => {
+    const root = document.documentElement
+    const prev = root.style.scrollBehavior
+    root.style.scrollBehavior = 'auto'
+    window.scrollTo(0, 0)
+    requestAnimationFrame(() => { root.style.scrollBehavior = prev })
+  }, [pathname])
   return null
 }
 
@@ -143,7 +152,9 @@ export default function ProjectPage() {
         <Nav />
       </div>
 
-      <main className="pp-main">
+      {/* key={id} remounts on project change so the fade-in replays when
+          browsing from one project to another. */}
+      <main className="pp-main" key={id}>
 
         {/* ── Title ── */}
         <div className="pp-hero">
@@ -155,7 +166,9 @@ export default function ProjectPage() {
           <div className="pp-meta-row">
             <div className="pp-meta-item">
               <div className="pp-meta-avatar">
-                {project.client.split(' ').map(w => w[0]).join('').slice(0, 2)}
+                {project.projIcon
+                  ? <img src={project.projIcon} alt={`${project.client} logo`} className="pp-meta-avatar-img" />
+                  : project.client.split(' ').map(w => w[0]).join('').slice(0, 2)}
               </div>
               <div className="pp-meta-info">
                 <span className="pp-meta-name">{project.client}</span>
@@ -243,9 +256,6 @@ export default function ProjectPage() {
             <div className="pp-related-inner">
               <div className="pp-related-header">
                 <h2 className="pp-related-heading">More Projects</h2>
-                <Link to="/#work" className="pp-related-view-all">
-                  View all <LuArrowUpRight size={14} />
-                </Link>
               </div>
               <div className="pp-related-grid">
                 {related.map((p, i) => (

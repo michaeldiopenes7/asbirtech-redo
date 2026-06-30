@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useParams, Link, Navigate, useLocation } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'
 import { insights } from '../../content/insights'
@@ -52,7 +52,15 @@ function RelatedCard({ p }) {
 
 function ScrollToTop() {
   const { pathname } = useLocation()
-  useEffect(() => { window.scrollTo(0, 0) }, [pathname])
+  // Reset scroll before paint so the page never flashes at the previous
+  // scroll offset / appears to animate in from the bottom.
+  useLayoutEffect(() => {
+    const root = document.documentElement
+    const prev = root.style.scrollBehavior
+    root.style.scrollBehavior = 'auto'
+    window.scrollTo(0, 0)
+    requestAnimationFrame(() => { root.style.scrollBehavior = prev })
+  }, [pathname])
   return null
 }
 

@@ -65,7 +65,7 @@
 
 .ic-date {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .ic-title {
@@ -125,12 +125,12 @@
 
 .ic-author-role {
   font-size: 11px;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.45);
 }
 
 .ic-arrow {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.45);
   flex-shrink: 0;
   transition: color 0.2s ease;
 }

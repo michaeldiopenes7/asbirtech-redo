@@ -29,7 +29,7 @@
 .footer-tagline {
   font-size: 14px;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.62);
   margin: 0;
   max-width: 34ch;
 }
@@ -67,7 +67,7 @@
 
 .footer-hours {
   font-size: 13px;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.52);
 }
 
 /* ── Bottom bar ── */
@@ -85,7 +85,7 @@
 .footer-bar-location {
   font-size: 13px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.52);
 }
 
 @media (max-width: 768px) {

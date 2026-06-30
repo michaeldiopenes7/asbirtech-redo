@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useEffect } from 'react'
+import React, { lazy, Suspense, useEffect, useLayoutEffect } from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import App from './App'
@@ -14,20 +14,36 @@ const NotFoundPage = lazy(() => import('./pages/NotFound'))
 
 function ScrollToTop() {
   const { pathname, hash } = useLocation()
-  useEffect(() => {
-    if (hash) {
-      const id = hash.slice(1)
-      requestAnimationFrame(() => {
-        const el = document.getElementById(id)
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
-        // Strip the hash from the URL so a refresh lands at the top of the page
-        // (not back on the section) — replaceState avoids a new history entry.
-        window.history.replaceState(null, '', pathname + window.location.search)
-      })
-      return
-    }
+
+  // No hash → reset scroll to the top *before* paint, so a fresh page never
+  // flashes at the previous page's scroll offset (which made entrance
+  // animations appear to start mid-page / "from the bottom").
+  useLayoutEffect(() => {
+    if (hash) return
+    // Temporarily kill the global `scroll-behavior: smooth` so the jump to the
+    // top of a brand-new page is instant — not a visible scroll up from the
+    // previous page's offset ("bottom to top").
+    const root = document.documentElement
+    const prev = root.style.scrollBehavior
+    root.style.scrollBehavior = 'auto'
     window.scrollTo(0, 0)
+    // Restore on the next frame, after the browser has settled at the top.
+    requestAnimationFrame(() => { root.style.scrollBehavior = prev })
   }, [pathname, hash])
+
+  // Hash present → smooth-scroll to the target section after it has rendered.
+  useEffect(() => {
+    if (!hash) return
+    const id = hash.slice(1)
+    requestAnimationFrame(() => {
+      const el = document.getElementById(id)
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      // Strip the hash from the URL so a refresh lands at the top of the page
+      // (not back on the section) — replaceState avoids a new history entry.
+      window.history.replaceState(null, '', pathname + window.location.search)
+    })
+  }, [pathname, hash])
+
   return null
 }
 

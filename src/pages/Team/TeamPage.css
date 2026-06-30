@@ -101,7 +101,7 @@
   border-radius: 99px;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: transparent;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.62);
   font-size: 13px;
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -152,7 +152,7 @@
 .tp-dept-count {
   font-size: 12px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.30);
+  color: rgba(255, 255, 255, 0.48);
   letter-spacing: 0.04em;
 }
 
@@ -332,8 +332,14 @@
 
 @media (max-width: 560px) {
   .tp-hero-section {
-    height: 20vh;
+    height: auto;
     min-height: 240px;
+  }
+
+  /* Push the title clear of the fixed nav bar */
+  .tp-hero-content {
+    padding-top: 110px;
+    padding-bottom: 40px;
   }
 
   .tp-hero-vignette {
