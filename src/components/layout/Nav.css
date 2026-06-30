@@ -113,25 +113,23 @@
 }
 
 /* ── Contact Us button (desktop) — bright white CTA against the orange backdrop ── */
-/* ── Hamburger button ── */
+/* ── Hamburger button — bare icon, no container (the nav glass bar is enough) ── */
 .nav-menu-btn {
   display: none;
   width: 36px;
   height: 36px;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  background: none;
+  border: 0;
   cursor: pointer;
   padding: 0;
   color: var(--white);
-  transition: background 0.2s, border-color 0.2s;
+  transition: opacity 0.2s;
 }
 
 .nav-menu-btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.18);
+  opacity: 0.7;
 }
 
 .nav-menu-icon {
@@ -255,33 +253,36 @@
   .nav-menu-btn {
     display: inline-flex;
   }
+
+  /* No links pill below this width — the glass becomes one plain full-width
+     bar wrapping just the logo + hamburger. (Overrides the desktop
+     "extend-left" geometry that anchors right with left: 52%.) */
+  .hero-nav::before,
+  .hero-nav.is-scrolled::before {
+    display: block;
+    inset: 8px 12px;
+    left: 12px;
+    right: 12px;
+  }
 }
 
 @media (max-width: 768px) {
   .hero-nav {
     top: 14px;
-    padding: 18px 40px;
+    padding: 18px 32px;
   }
   .hero-nav.is-scrolled {
-    padding: 18px 40px;
-  }
-  .hero-nav::before,
-  .hero-nav.is-scrolled::before {
-    inset: 10px 20px;
+    padding: 18px 32px;
   }
 }
 
 @media (max-width: 480px) {
   .hero-nav {
     top: 10px;
-    padding: 16px 32px;
+    padding: 16px 28px;
   }
   .hero-nav.is-scrolled {
-    padding: 16px 32px;
-  }
-  .hero-nav::before,
-  .hero-nav.is-scrolled::before {
-    inset: 9px 14px;
+    padding: 16px 28px;
   }
 
   .nav-logo-image {
@@ -291,14 +292,10 @@
 
 @media (max-width: 360px) {
   .hero-nav {
-    padding: 14px 26px;
+    padding: 14px 24px;
   }
   .hero-nav.is-scrolled {
-    padding: 14px 26px;
-  }
-  .hero-nav::before,
-  .hero-nav.is-scrolled::before {
-    inset: 8px 12px;
+    padding: 14px 24px;
   }
 
   .nav-logo-image {

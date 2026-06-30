@@ -153,7 +153,8 @@
 /* Tablet */
 @media (max-width: 1024px) {
   .hero-content {
-    padding: 120px 36px 56px;
+    flex: unset;
+    padding: 150px 36px 56px;
     justify-content: flex-start;
   }
 
@@ -164,7 +165,7 @@
 
 @media (max-width: 768px) {
   .hero-content {
-    padding: 100px 24px 48px;
+    padding: 130px 24px 48px;
     justify-content: flex-start;
   }
 
@@ -226,15 +227,16 @@
 @media (max-width: 480px) {
   .hero-content {
     flex: unset;
-    padding: 96px 16px 40px;
+    padding: 120px 16px 40px;
     justify-content: flex-start;
   }
 
   .hero-headline {
-    font-size: clamp(40px, 11vw, 56px);
+    font-size: clamp(32px, 8.5vw, 48px);
     margin-bottom: 0;
     letter-spacing: -0.02em;
-    line-height: 1.08;
+    line-height: 1.1;
+    overflow-wrap: break-word;
   }
 
   .hero-description {
@@ -253,11 +255,11 @@
 /* Small mobile */
 @media (max-width: 360px) {
   .hero-content {
-    padding: 96px 12px 32px;
+    padding: 112px 12px 32px;
   }
 
   .hero-headline {
-    font-size: clamp(36px, 10vw, 48px);
+    font-size: clamp(28px, 8vw, 40px);
   }
 
   .hero-description {
