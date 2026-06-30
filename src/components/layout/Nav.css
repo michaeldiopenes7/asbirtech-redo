@@ -36,9 +36,9 @@
   position: absolute;
   top: 12px;
   bottom: 12px;
-  right: 32px;
+  right: 40px;
   /* default: starts just left of the links cluster (right side) */
-  left: 46%;
+  left: 51%;
   border-radius: 14px;
   border: 1px solid var(--glass-border);
   background: rgba(10, 10, 10, 0.6);
