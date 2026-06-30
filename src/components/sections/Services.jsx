@@ -11,7 +11,7 @@ export default function Services() {
       <div className="container">
         <div className="services-header" data-anim="fade-up">
           <h2 id="services-heading" className="services-headline">
-            What we do
+            What We Do
           </h2>
         </div>
 

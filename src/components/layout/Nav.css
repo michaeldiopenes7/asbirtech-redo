@@ -22,6 +22,12 @@
   padding: 24px 64px;
 }
 
+/* When the mobile menu is open, lift the bar above the blur overlay so the
+   logo + close (X) button stay crisp and tappable. */
+.hero-nav.menu-open {
+  z-index: 1001;
+}
+
 /* Glass container. Identical glass in both states — only its LEFT edge moves.
    Default: hugs just the links pill on the right. On scroll: its left edge
    extends out to the logo, absorbing it into one continuous bar. */
@@ -58,6 +64,8 @@
 
 /* ── Logo ── */
 .nav-logo {
+  position: relative;
+  z-index: 3;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -106,6 +114,8 @@
 
 /* ── Desktop CTA area ── */
 .nav-cta {
+  position: relative;
+  z-index: 3;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -176,6 +186,39 @@
 .nav-menu-icon.is-open::before,
 .nav-menu-icon.is-open::after {
   opacity: 1;
+}
+
+/* ── Tap-outside backdrop: closes the menu and blurs the page behind it ── */
+.nav-menu-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: default;
+  /* Sits behind the bar's logo/X (z-index 2) and the dropdown (z-index 1000),
+     so only the page behind the dropdown is blurred — the nav bar stays crisp. */
+  z-index: 1;
+  animation: navOverlayIn 0.2s ease-out forwards;
+}
+
+.nav-menu-overlay.closing {
+  animation: navOverlayOut 0.2s ease-in forwards;
+}
+
+@keyframes navOverlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes navOverlayOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
 }
 
 /* ── Mobile menu panel — aligned to the nav glass bar's side margins ── */
@@ -269,6 +312,12 @@
     inset: 8px 12px;
     left: 12px;
     right: 12px;
+  }
+
+  /* When the menu is open, keep the bar's glass above the blur overlay (z-index 1)
+     so the whole bar stays crisp — logo/X sit above it at z-index 3. */
+  .hero-nav.menu-open::before {
+    z-index: 2;
   }
 }
 

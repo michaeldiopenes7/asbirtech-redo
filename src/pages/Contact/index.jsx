@@ -194,7 +194,7 @@ export default function ContactPage() {
         <div className="cp-hero-vignette" />
         <div className="cp-nav-wrap container"><Nav /></div>
         <div className="cp-hero-content">
-          <h1 className="cp-hero-title">Contact us</h1>
+          <h1 className="cp-hero-title">Contact Us</h1>
         </div>
       </div>
 
@@ -202,7 +202,7 @@ export default function ContactPage() {
         <div className="container">
 
           <header className="cp-hero">
-            <h2 className="cp-headline">Let's build something<br />together</h2>
+            <h2 className="cp-headline">Let's build something together</h2>
             <p className="cp-subheadline">
               Whether you have a project in mind or just want to explore what's possible,
               our team in Dumaguete is ready to help.

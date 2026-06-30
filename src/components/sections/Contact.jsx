@@ -107,7 +107,7 @@ export default function Contact() {
           <div className="contact-overlay" />
           <div className="contact-content">
             <h2 id="contact-heading" className="contact-headline">
-              Talk to us today
+              Talk to Us Today
             </h2>
             <p className="contact-desc">
               Our team delivers strategic support in building and managing your cloud

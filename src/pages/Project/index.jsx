@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { useParams, Link, Navigate, useLocation } from 'react-router-dom'
+import { useParams, Link, useLocation } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'
 import { projects } from '../../content/projects'
 import Nav from '../../components/layout/Nav'
@@ -115,7 +115,23 @@ export default function ProjectPage() {
   const { id } = useParams()
   const project = projects.find(p => p.id === id)
 
-  if (!project) return <Navigate to="/" replace />
+  // Don't auto-redirect home on a missing project — keep the user on the page
+  // and let them choose where to go next.
+  if (!project) {
+    return (
+      <>
+        <ScrollToTop />
+        <div className="pp-nav-wrap container">
+          <Nav />
+        </div>
+        <div className="pp-notfound container">
+          <h1>Project not found</h1>
+          <p>This case study may have moved or no longer exists.</p>
+          <Link to="/#work" className="pp-back-link">View all work</Link>
+        </div>
+      </>
+    )
+  }
 
   const related = projects.filter(p => p.id !== id)
 

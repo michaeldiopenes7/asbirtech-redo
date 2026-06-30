@@ -32,7 +32,7 @@ export default function Process() {
 
         <div className="process-header" data-anim="fade-up">
           <h2 id="process-heading" className="process-headline">
-            How we work
+            How We Work
           </h2>
           <p className="process-subheadline">
             A clear, repeatable process that keeps projects on track — from the first conversation to long after launch.

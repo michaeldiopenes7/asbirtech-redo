@@ -2,9 +2,21 @@ import { useEffect, useRef, useState } from 'react'
 
 export default function MemberCard({ member, photo, hoverPhoto }) {
   const cardRef = useRef(null)
+  const revertTimer = useRef(null)
   const [inView, setInView] = useState(false)
   const [imgLoaded, setImgLoaded] = useState(false)
   const [hovered, setHovered] = useState(false)
+
+  // On touch devices there's no hover-out, so a tap reveals the wacky photo
+  // then auto-reverts to the formal one after a short timeout.
+  const handleTap = () => {
+    if (!hoverPhoto) return
+    setHovered(true)
+    clearTimeout(revertTimer.current)
+    revertTimer.current = setTimeout(() => setHovered(false), 1500)
+  }
+
+  useEffect(() => () => clearTimeout(revertTimer.current), [])
 
   // Preload the wacky hover image so the swap is instant
   useEffect(() => {
@@ -45,6 +57,7 @@ export default function MemberCard({ member, photo, hoverPhoto }) {
       className={`tp-member-card${ready ? ' is-ready' : ' is-loading'}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      onTouchStart={handleTap}
       onContextMenu={(e) => e.preventDefault()}
     >
       {!ready && (

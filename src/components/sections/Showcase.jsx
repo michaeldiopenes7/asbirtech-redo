@@ -21,7 +21,7 @@ export default function Showcase() {
 
         <div className="showcase-top" data-anim="fade-up">
           <div className="showcase-header">
-            <h2 id="showcase-heading" className="showcase-headline">Our work</h2>
+            <h2 id="showcase-heading" className="showcase-headline">Our Work</h2>
           </div>
           <div className="showcase-nav">
             <button className="showcase-nav-btn" onClick={() => scroll('prev')} aria-label="Previous project">

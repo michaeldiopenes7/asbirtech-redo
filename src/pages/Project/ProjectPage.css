@@ -358,3 +358,31 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* ── Project not found ── */
+.pp-notfound {
+  padding: 200px 0 160px;
+  text-align: center;
+  color: var(--white);
+}
+
+.pp-notfound h1 {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 500;
+  margin: 0 0 12px;
+}
+
+.pp-notfound p {
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0 0 28px;
+}
+
+.pp-back-link {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 12px;
+  background: var(--white);
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+}

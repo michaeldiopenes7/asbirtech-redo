@@ -75,7 +75,7 @@ export default function Nav() {
   }
 
   return (
-    <nav className={`hero-nav ${scrolled ? 'is-scrolled' : ''}`}>
+    <nav className={`hero-nav ${scrolled ? 'is-scrolled' : ''} ${menuOpen ? 'menu-open' : ''}`}>
       <Link to="/" className="nav-logo">
         <img src={logo} alt="Asbir Tech" className="nav-logo-image" />
       </Link>
@@ -104,6 +104,15 @@ export default function Nav() {
           </span>
         </button>
       </div>
+
+        {menuOpen && (
+          <button
+            type="button"
+            className={`nav-menu-overlay ${isClosing ? 'closing' : ''}`}
+            aria-label="Close menu"
+            onClick={closeMenu}
+          />
+        )}
 
         {menuOpen && (
           <div className={`nav-mobile-menu ${isClosing ? 'closing' : ''}`}>
