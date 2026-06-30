@@ -30,9 +30,9 @@
   position: absolute;
   top: 12px;
   bottom: 12px;
-  right: 48px;
+  right: 32px;
   /* default: starts just left of the links cluster (right side) */
-  left: 52%;
+  left: 46%;
   border-radius: 14px;
   border: 1px solid var(--glass-border);
   background: rgba(10, 10, 10, 0.6);
@@ -82,7 +82,7 @@
   flex: 0 0 auto;
   justify-content: center;
   margin: 0;
-  padding: 0 8px;
+  padding: 0 18px;
 }
 
 /* Inactive links are ghosted; the active one is solid white */
@@ -178,12 +178,12 @@
   opacity: 1;
 }
 
-/* ── Mobile menu panel ── */
+/* ── Mobile menu panel — aligned to the nav glass bar's side margins ── */
 .nav-mobile-menu {
   position: absolute;
-  top: calc(100% + 8px);
-  left: 0;
-  right: 0;
+  top: calc(100% + 4px);
+  left: 12px;
+  right: 12px;
   display: flex;
   flex-direction: column;
   padding: 8px;
@@ -238,10 +238,16 @@
 /* ── Breakpoints ── */
 @media (max-width: 1024px) {
   .hero-nav {
-    padding: 22px 52px;
+    padding: 22px 40px;
   }
   .hero-nav.is-scrolled {
-    padding: 22px 52px;
+    padding: 22px 40px;
+  }
+  /* Narrower viewport → the links cluster is wider relative to the nav, so the
+     pill must start further left (and end further right) to contain Home…Team. */
+  .hero-nav::before {
+    right: 24px;
+    left: 35%;
   }
 }
 
