@@ -3,7 +3,7 @@ import MemberCard from './MemberCard'
 import fireFrag from '../../shaders/showcase-fire.glsl'
 import Nav from '../../components/layout/Nav'
 import { departments } from '../../content/team'
-import logo from '../../assets/images/asbirtechlogo.png'
+import SiteFooter from '../../components/layout/SiteFooter'
 import './TeamPage.css'
 
 const VERT = `attribute vec2 a_pos; void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }`
@@ -152,15 +152,7 @@ export default function TeamPage() {
         </div>
       </main>
 
-      <footer className="site-footer" aria-label="Site footer">
-        <div className="footer-bar">
-          <div className="footer-bar-left">
-            <img src={logo} alt="Asbir Tech" className="footer-bar-logo" />
-            <span className="footer-bar-copy">&copy; {new Date().getFullYear()} AsbirTech, Inc.</span>
-          </div>
-          <span className="footer-bar-location">🇵🇭&nbsp; Dumaguete, PH</span>
-        </div>
-      </footer>
+      <SiteFooter />
 
     </div>
   )

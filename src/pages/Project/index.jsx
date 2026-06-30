@@ -4,7 +4,7 @@ import { LuArrowUpRight } from 'react-icons/lu'
 import { projects } from '../../content/projects'
 import Nav from '../../components/layout/Nav'
 import ShowcaseCard from '../../components/webgl/ShowcaseCard'
-import logo from '../../assets/images/asbirtechlogo.png'
+import SiteFooter from '../../components/layout/SiteFooter'
 import fireFrag  from '../../shaders/showcase-fire.glsl'
 import emberFrag from '../../shaders/showcase-ember.glsl'
 import goldFrag  from '../../shaders/showcase-gold.glsl'
@@ -250,15 +250,7 @@ export default function ProjectPage() {
 
       </main>
 
-      <footer className="site-footer" aria-label="Site footer">
-        <div className="footer-bar">
-          <div className="footer-bar-left">
-            <img src={logo} alt="Asbir Tech" className="footer-bar-logo" />
-            <span className="footer-bar-copy">&copy; {new Date().getFullYear()} AsbirTech, Inc.</span>
-          </div>
-          <span className="footer-bar-location">🇵🇭&nbsp; Dumaguete, PH</span>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   )
 }

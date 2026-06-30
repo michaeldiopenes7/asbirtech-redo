@@ -1,11 +1,52 @@
 .hero-nav {
-  position: relative;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1320px;
+  box-sizing: border-box;
   z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 28px 0;
+  /* horizontal pad matches .container; vertical pad shrinks on scroll */
+  padding: 24px 64px;
   gap: 16px;
+  transition: padding 0.32s ease;
+}
+
+/* Morph once scrolled below the hero: keep the same padding/height as default —
+   only the glass left edge extends to absorb the logo. */
+.hero-nav.is-scrolled {
+  padding: 24px 64px;
+}
+
+/* Glass container. Identical glass in both states — only its LEFT edge moves.
+   Default: hugs just the links pill on the right. On scroll: its left edge
+   extends out to the logo, absorbing it into one continuous bar. */
+.hero-nav::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  bottom: 12px;
+  right: 48px;
+  /* default: starts just left of the links cluster (right side) */
+  left: 52%;
+  border-radius: 14px;
+  border: 1px solid var(--glass-border);
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-sheen);
+  transition: left 0.7s cubic-bezier(0.65, 0, 0.35, 1);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.hero-nav.is-scrolled::before {
+  /* extends left to wrap the logo too */
+  left: 48px;
 }
 
 /* Right cluster: nav links pill + CTA grouped together (reference layout) */
@@ -32,6 +73,7 @@
 }
 
 /* ── Desktop nav links ── */
+/* No separate pill — the links sit directly inside the one glass bar */
 .nav-links {
   list-style: none;
   display: flex;
@@ -39,18 +81,14 @@
   gap: 38px;
   flex: 0 0 auto;
   justify-content: center;
-  padding: 15px 24px;
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  box-shadow: var(--glass-sheen);
+  margin: 0;
+  padding: 0 8px;
 }
 
+/* Inactive links are ghosted; the active one is solid white */
 .nav-links a {
   text-decoration: none;
-  color: var(--off-white);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 15px;
   font-weight: 500;
   letter-spacing: -0.02em;
@@ -59,6 +97,10 @@
 }
 
 .nav-links a:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.nav-links a.is-active {
   color: var(--white);
 }
 
@@ -189,15 +231,23 @@
   color: var(--white);
 }
 
+.nav-mobile-link.is-active {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.06);
+}
+
 /* Divider */
 /* ── Breakpoints ── */
-@media (max-width: 900px) {
+@media (max-width: 1024px) {
   .hero-nav {
-    padding: 20px 0;
-    grid-template-columns: 1fr auto;
-    gap: 16px;
+    padding: 22px 52px;
   }
+  .hero-nav.is-scrolled {
+    padding: 22px 52px;
+  }
+}
 
+@media (max-width: 900px) {
   .nav-links {
     display: none;
   }
@@ -207,9 +257,31 @@
   }
 }
 
+@media (max-width: 768px) {
+  .hero-nav {
+    top: 14px;
+    padding: 18px 40px;
+  }
+  .hero-nav.is-scrolled {
+    padding: 18px 40px;
+  }
+  .hero-nav::before,
+  .hero-nav.is-scrolled::before {
+    inset: 10px 20px;
+  }
+}
+
 @media (max-width: 480px) {
   .hero-nav {
-    padding: 16px 0;
+    top: 10px;
+    padding: 16px 32px;
+  }
+  .hero-nav.is-scrolled {
+    padding: 16px 32px;
+  }
+  .hero-nav::before,
+  .hero-nav.is-scrolled::before {
+    inset: 9px 14px;
   }
 
   .nav-logo-image {
@@ -219,7 +291,14 @@
 
 @media (max-width: 360px) {
   .hero-nav {
-    padding: 14px 0;
+    padding: 14px 26px;
+  }
+  .hero-nav.is-scrolled {
+    padding: 14px 26px;
+  }
+  .hero-nav::before,
+  .hero-nav.is-scrolled::before {
+    inset: 8px 12px;
   }
 
   .nav-logo-image {

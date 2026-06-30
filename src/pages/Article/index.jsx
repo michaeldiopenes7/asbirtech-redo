@@ -3,7 +3,7 @@ import { useParams, Link, Navigate, useLocation } from 'react-router-dom'
 import { LuArrowUpRight } from 'react-icons/lu'
 import { insights } from '../../content/insights'
 import Nav from '../../components/layout/Nav'
-import logo from '../../assets/images/asbirtechlogo.png'
+import SiteFooter from '../../components/layout/SiteFooter'
 import './ArticlePage.css'
 
 function RelatedCard({ p }) {
@@ -179,15 +179,7 @@ export default function ArticlePage() {
 
       </main>
 
-      <footer className="site-footer" aria-label="Site footer">
-        <div className="footer-bar">
-          <div className="footer-bar-left">
-            <img src={logo} alt="Asbir Tech" className="footer-bar-logo" />
-            <span className="footer-bar-copy">&copy; {new Date().getFullYear()} AsbirTech, Inc.</span>
-          </div>
-          <span className="footer-bar-location">🇵🇭&nbsp; Dumaguete, PH</span>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   )
 }

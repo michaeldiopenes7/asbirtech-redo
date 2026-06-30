@@ -10,7 +10,7 @@ export default function Hero() {
       <div className="hero-backdrop">
         <GradientBlinds blindCount={48} />
       </div>
-      <div className="container"><Nav /></div>
+      <Nav />
       <HeroContent />
       {/* <Partners /> */}
     </div>
